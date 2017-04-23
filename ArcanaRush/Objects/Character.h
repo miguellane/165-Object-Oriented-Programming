@@ -10,5 +10,6 @@ public:
 	int bombs;
 //	int arcanaType;
 
+	Character(float x, float y, float w, float h, float d, float v);
 };
 #endif

@@ -3,7 +3,6 @@
   <ItemGroup>
     <ClCompile Include="..\App.cpp" />
     <ClCompile Include="..\app_main.cpp" />
-    <ClCompile Include="..\board.cpp" />
     <ClCompile Include="..\GlutApp.cpp" />
     <ClCompile Include="..\Objects\boss.cpp">
       <Filter>Objects</Filter>
@@ -23,7 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\App.h" />
-    <ClInclude Include="..\Board.h" />
     <ClInclude Include="..\GlutApp.h" />
     <ClInclude Include="..\Objects\Boss.h">
       <Filter>Objects</Filter>

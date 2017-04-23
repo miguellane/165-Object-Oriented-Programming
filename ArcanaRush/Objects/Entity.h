@@ -8,10 +8,12 @@ public:
 	float w, h;
 	float direction;
 	float velocity;
-	int movePattern;
+
+//	int movePattern;
 // float texture
 	float r, g, b;
 
+	void update();
 	void draw();
 };
 

@@ -1,5 +1,5 @@
-#ifndef BULLET_H
-#define BULLET_H
+#ifndef BOSS_H
+#define BOSS_H
 
 # include "Entity.h";
 

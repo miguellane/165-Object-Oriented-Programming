@@ -5,7 +5,6 @@
 class Bullet : public Entity {
 
 public:
-	bool team;
 	float damage;
 };
 
