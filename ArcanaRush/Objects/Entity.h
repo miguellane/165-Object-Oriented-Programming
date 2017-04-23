@@ -8,6 +8,7 @@ public:
 	float w, h;
 	float direction;
 	float velocity;
+	float acceleration;
 
 //	int movePattern;
 // float texture
