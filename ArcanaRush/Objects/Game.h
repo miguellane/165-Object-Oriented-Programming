@@ -14,9 +14,9 @@ class Game{
 	float score;
 	bool bossFight;
 public:
-	Character mc;
+	Character* mc;
 	std::vector<Bullet*> mcShots;
-	Boss boss;
+	Boss* boss;
 	std::vector<Mob*> enemies;
 	std::vector<Bullet*> shots;
 
