@@ -3,6 +3,7 @@
 App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w, h) {
 	mx = 0.0;
 	my = 0.0;
+//PENISPENISPENISPENISPENISPENIS
 }
 
 void App::draw() {
