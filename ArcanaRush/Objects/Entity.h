@@ -14,7 +14,7 @@ public:
 	// float texture
 	float r, g, b;
 
-	Entity(float x, float y, float w, float h, float d, float v, float r, float g, float b);
+	Entity(float x, float y, float w, float h, float d, float v, float a, int mv, float r, float g, float b);
 	void update();
 	void draw();
 };
@@ -26,7 +26,7 @@ public:
 	float atkSpeed;
 	float atkDamage;
 
-	Mob(float x, float y, float w, float h, float d, float v, float r, float g, float b, int hp, float aD, float aS);
+	Mob(float x, float y, float w, float h, float d, float v, float a, int mv, float r, float g, float b, int hp, float aD, float aS);
 
 	void mobAtk1();
 	void mobAtk2();

@@ -28,8 +28,7 @@ void App::mouseDrag(float x, float y) {
 }
 
 void App::keyPress(unsigned char key) {
-	float PI = 3.14159265359;
-	float v = 0.00001f;
+	float v = 0.0001f;
 	switch (key) {
 	case 27:	exit(0);	break;
 	case ' ':	break;
@@ -37,6 +36,12 @@ void App::keyPress(unsigned char key) {
 	case 'a':	game.mc->direction = (float)(PI); game.mc->velocity = v; break;
 	case 's':	game.mc->direction = (float)((3*PI)/2); game.mc->velocity = v; break;
 	case 'd':	game.mc->direction = (float)(2*PI); game.mc->velocity = v; break;
+
+
+	case 'i':	game.mc->direction = (float)(PI / 2); game.mc->velocity = v; break;
+	case 'j':	game.mc->direction = (float)(PI); game.mc->velocity = v; break;
+	case 'k':	game.mc->direction = (float)((3 * PI) / 2); game.mc->velocity = v; break;
+	case 'l':	game.mc->direction = (float)(2 * PI); game.mc->velocity = v; break;
 	}
 	redraw();
 }
