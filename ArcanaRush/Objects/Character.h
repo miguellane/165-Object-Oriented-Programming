@@ -1,7 +1,7 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-# include "Entity.h";
+# include "Entity.h"
 
 class Character : public Mob{
 
