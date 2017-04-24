@@ -2,18 +2,19 @@
 #define ENTITY_H
 
 class Entity{
-	
+
 public:
 	float x, y;
 	float w, h;
 	float direction;
 	float velocity;
 	float acceleration;
+	int movePattern;
 
-//	int movePattern;
-// float texture
+	// float texture
 	float r, g, b;
 
+	Entity(float x, float y, float w, float h, float d, float v, float r, float g, float b);
 	void update();
 	void draw();
 };
@@ -24,6 +25,11 @@ public:
 	int health;
 	float atkSpeed;
 	float atkDamage;
-	float moveSpeed;
+
+	Mob(float x, float y, float w, float h, float d, float v, float r, float g, float b, int hp, float aD, float aS);
+
+	void mobAtk1();
+	void mobAtk2();
+	void mobAtk3();
 };
 #endif
