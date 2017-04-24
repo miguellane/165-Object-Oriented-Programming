@@ -1,9 +1,4 @@
-﻿  boss.cpp
-  bullet.cpp
-  character.cpp
-  entity.cpp
-  game.cpp
-  Generating Code...
-App.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+﻿  App.cpp
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\app.cpp(31): warning C4305: 'initializing': truncation from 'double' to 'float'
   glutapp.vcxproj -> C:\Users\Kari\Documents\GitHub\165-Object-Oriented-Programming\ArcanaRush\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
