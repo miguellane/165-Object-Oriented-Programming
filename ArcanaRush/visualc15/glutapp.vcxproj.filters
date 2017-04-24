@@ -5,43 +5,58 @@
     <ClCompile Include="..\app_main.cpp" />
     <ClCompile Include="..\GlutApp.cpp" />
     <ClCompile Include="..\Objects\boss.cpp">
-      <Filter>Objects</Filter>
+      <Filter>Objects\boss</Filter>
     </ClCompile>
     <ClCompile Include="..\Objects\bullet.cpp">
-      <Filter>Objects</Filter>
+      <Filter>Objects\bullet</Filter>
     </ClCompile>
     <ClCompile Include="..\Objects\character.cpp">
-      <Filter>Objects</Filter>
+      <Filter>Objects\character</Filter>
     </ClCompile>
     <ClCompile Include="..\Objects\entity.cpp">
-      <Filter>Objects</Filter>
+      <Filter>Objects\entity</Filter>
     </ClCompile>
     <ClCompile Include="..\Objects\game.cpp">
-      <Filter>Objects</Filter>
+      <Filter>Objects\game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\App.h" />
     <ClInclude Include="..\GlutApp.h" />
     <ClInclude Include="..\Objects\Boss.h">
-      <Filter>Objects</Filter>
+      <Filter>Objects\boss</Filter>
     </ClInclude>
     <ClInclude Include="..\Objects\Bullet.h">
-      <Filter>Objects</Filter>
+      <Filter>Objects\bullet</Filter>
     </ClInclude>
     <ClInclude Include="..\Objects\Character.h">
-      <Filter>Objects</Filter>
+      <Filter>Objects\character</Filter>
     </ClInclude>
     <ClInclude Include="..\Objects\Entity.h">
-      <Filter>Objects</Filter>
+      <Filter>Objects\entity</Filter>
     </ClInclude>
     <ClInclude Include="..\Objects\Game.h">
-      <Filter>Objects</Filter>
+      <Filter>Objects\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Objects">
       <UniqueIdentifier>{3bb514a6-6a6b-47d9-877b-1ab206d94cef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\boss">
+      <UniqueIdentifier>{32feeef1-8c1a-4d36-9ecb-7064dd08eab7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\bullet">
+      <UniqueIdentifier>{046fc3d6-a2ac-48fc-8895-69d2e2300145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\character">
+      <UniqueIdentifier>{49b124b0-85af-4fda-8415-d70c3ef1f18b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\entity">
+      <UniqueIdentifier>{d46d6e7b-a0a6-44d0-be3f-7789e93d899a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\game">
+      <UniqueIdentifier>{6a27c6d7-7242-4c9c-bf57-f77a2d055bbd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

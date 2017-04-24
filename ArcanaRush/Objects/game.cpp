@@ -18,6 +18,7 @@ void Game::update(){
 		enemies[i]->update();
 	for (i = 0; i < shots.size(); i++)
 		shots[i]->update();
+
 }
 void Game::draw() {
 	size_t i;
