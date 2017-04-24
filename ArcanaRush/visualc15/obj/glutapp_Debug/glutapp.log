@@ -1,3 +1,9 @@
-﻿  game.cpp
-  glutapp.vcxproj -> C:\Users\Miguel\Documents\GitHub\165-Object-Oriented-Programming\ArcanaRush\visualc15\obj\glutapp_Debug\glutapp.exe
+﻿  boss.cpp
+  bullet.cpp
+  character.cpp
+  entity.cpp
+  game.cpp
+  Generating Code...
+App.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  glutapp.vcxproj -> C:\Users\Kari\Documents\GitHub\165-Object-Oriented-Programming\ArcanaRush\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)

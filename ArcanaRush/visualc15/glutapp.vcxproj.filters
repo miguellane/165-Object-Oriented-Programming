@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Objects">
-      <UniqueIdentifier>{dc3fa628-ef7b-486a-acd6-338fa7299d78}</UniqueIdentifier>
+      <UniqueIdentifier>{3bb514a6-6a6b-47d9-877b-1ab206d94cef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
