@@ -7,7 +7,7 @@ class Bullet : public Entity {
 public:
 	float damage;
 
-	Bullet(float x, float y, float w, float h, float d, float v, float dmg);
+	Bullet(float x, float y, float w, float h, float d, float v, int mv, float dmg);
 
 };
 

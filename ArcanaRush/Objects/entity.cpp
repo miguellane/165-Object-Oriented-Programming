@@ -1,13 +1,15 @@
 #include "Entity.h"
 #include "GlutApp.h"
 
-Entity::Entity(float x, float y, float w, float h, float d, float v, float r, float g, float b){
+Entity::Entity(float x, float y, float w, float h, float d, float v, float a, int mv, float r, float g, float b){
 	this->x = x;
 	this->y = y;
 	this->w = w;
 	this->h = h;
 	this->direction = d;
 	this->velocity = v;
+	this->acceleration = a;
+	this->movePattern = mv;
 	this->r = r;
 	this->g = g;
 	this->b = b;
@@ -28,11 +30,10 @@ void Entity::draw(){
 }
 
 //MOB SUBCLASS IS DEFINED HERE
-Mob::Mob(float x, float y, float w, float h, float d, float v, float r, float g, float b, int hp, float aD, float aS)
-	: Entity( x, y, w, h, d, v, r, g, b)
+Mob::Mob(float x, float y, float w, float h, float d, float v, float a, int mv, float r, float g, float b, int hp, float aD, float aS)
+	: Entity( x, y, w, h, d, v, a, mv, r, g, b)
 {
 	this->health = hp;
 	this->atkSpeed = aD;
 	this->atkDamage = aS;
-
 }

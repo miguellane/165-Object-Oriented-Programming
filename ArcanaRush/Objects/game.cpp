@@ -3,7 +3,7 @@
 Game::Game(){
 	score = 0;
 	bossFight = false;
-	mc = new Character(0.0f, -0.5f, 0.01f, 0.01f, 0.0f, 0.0f);
+	mc = new Character(0.0f, -0.5f, 0.01f, 0.01f);
 }
 void Game::update(){
 	size_t i;
