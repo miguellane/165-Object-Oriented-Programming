@@ -1,0 +1,52 @@
+﻿  App.cpp
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(8): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\character.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\boss.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\bullet.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  app_main.cpp
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(8): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\character.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\boss.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\bullet.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  GlutApp.cpp
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\glutapp.cpp(42): warning C4305: '-=': truncation from 'double' to 'float'
+  boss.cpp
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\boss.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  bullet.cpp
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\bullet.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  character.cpp
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(8): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\character.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\boss.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\bullet.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  entity.cpp
+  game.cpp
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(8): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\character.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\boss.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.h(10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\bullet.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(3): error C2512: 'Character': no appropriate default constructor available
+  c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\character.h(6): note: see declaration of 'Character'
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(9): warning C4018: '<': signed/unsigned mismatch
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(14): warning C4018: '<': signed/unsigned mismatch
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(16): warning C4018: '<': signed/unsigned mismatch
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(21): warning C4018: '<': signed/unsigned mismatch
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(26): warning C4018: '<': signed/unsigned mismatch
+c:\users\kari\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(28): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
