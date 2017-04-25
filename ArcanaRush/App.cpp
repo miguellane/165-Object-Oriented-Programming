@@ -31,7 +31,6 @@ void App::keyPress(unsigned char key) {
 	float v = 0.0001f;
 	switch (key) {
 	case 27:	exit(0);	break;
-	case ' ':	break;
 	case 'w':	game.mc->direction = (float)(PI / 2); game.mc->velocity = v; break;
 	case 'a':	game.mc->direction = (float)(PI); game.mc->velocity = v; break;
 	case 's':	game.mc->direction = (float)((3*PI)/2); game.mc->velocity = v; break;
@@ -42,6 +41,7 @@ void App::keyPress(unsigned char key) {
 	case 'j':	game.mc->direction = (float)(PI); game.mc->velocity = v; break;
 	case 'k':	game.mc->direction = (float)((3 * PI) / 2); game.mc->velocity = v; break;
 	case 'l':	game.mc->direction = (float)(2 * PI); game.mc->velocity = v; break;
+
 	}
 	redraw();
 }

@@ -2,6 +2,7 @@
 #define CHARACTER_H
 
 # include "Entity.h"
+# include "Bullet.h"
 
 class Character : public Mob{
 
@@ -11,5 +12,8 @@ public:
 //	int arcanaType;
 
 	Character(float x, float y, float w, float h);
+	std::vector<Bullet*> atk();
+
+	std::vector<Bullet*> atk1();
 };
 #endif
