@@ -15,10 +15,3 @@ std::vector<Bullet*> Character::fire(){
 	}
 	return t;
 }
-
-std::vector<Bullet*> Character::atk1(){
-	std::vector<Bullet *> t;
-	Bullet* shot = new Bullet(x, y, 0.01f, 0.01f, PI/2, 0.001f, 1, atkDamage);
-	t.push_back(shot);
-	return t;
-}

@@ -1,7 +1,8 @@
 #ifndef BOSS_H
 #define BOSS_H
 
-# include "Entity.h"
+# include "Mob.h"
+# include "Bullet.h"
 
 class Boss : public Mob{
 

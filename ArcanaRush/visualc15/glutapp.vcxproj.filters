@@ -19,6 +19,9 @@
     <ClCompile Include="..\Objects\game.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="..\Objects\mob.cpp">
+      <Filter>Game\Mob</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\App.h" />
@@ -38,6 +41,9 @@
     <ClInclude Include="..\Objects\Game.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="..\Objects\Mob.h">
+      <Filter>Game\Mob</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -54,6 +60,9 @@
     </Filter>
     <Filter Include="Game\Entity">
       <UniqueIdentifier>{d46d6e7b-a0a6-44d0-be3f-7789e93d899a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Mob">
+      <UniqueIdentifier>{5aa79a41-4a28-4181-90ba-57630e57f705}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -9,8 +9,6 @@
 # include "Boss.h"
 # include "Bullet.h"
 
-const double PI = (float)3.14159265359;
-
 class Game{
 	float score;
 	bool bossFight;
