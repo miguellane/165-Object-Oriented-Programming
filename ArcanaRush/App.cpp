@@ -28,7 +28,7 @@ void App::mouseDrag(float x, float y) {
 }
 
 void App::keyPress(unsigned char key) {
-	float v = 0.0001f;
+	float v = 0.001f;
 	switch (key) {
 	case 27:	exit(0);	break;
 	case 'w':	game.mc->direction = (float)(PI / 2); game.mc->velocity = v; break;

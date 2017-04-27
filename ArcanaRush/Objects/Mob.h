@@ -14,10 +14,10 @@ public:
 
 	Mob(float x, float y, float d, float v, int mv, int atk, float aS);
 	Mob(float x, float y, float w, float h, float d, float v, int mv, float r, float g, float b, int hp, int atk, int aD, float aS);
-
 	std::vector<Bullet*> fire();
+
 	std::vector<Bullet*> atk1();
-	void atk2();
-	void atk3();
+	std::vector<Bullet*> atk2();
+	std::vector<Bullet*> atk3();
 };
 #endif

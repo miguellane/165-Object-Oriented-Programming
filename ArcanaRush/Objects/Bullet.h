@@ -8,6 +8,7 @@ class Bullet : public Entity {
 public:
 	int damage;
 
+	Bullet(float x, float y, float d, float v, int mv, int dmg);
 	Bullet(float x, float y, float w, float h, float d, float v, int mv, int dmg);
 
 };

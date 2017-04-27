@@ -8,7 +8,6 @@ Mob::Mob(float x, float y, float d, float v, int mv, int atk, float aS)
 	this->atk = atk;
 	this->atkDamage = 1;
 	this->atkSpeed = aS;
-
 }
 Mob::Mob(float x, float y, float w, float h, float d, float v, int mv, float r, float g, float b, int hp, int atk, int aD, float aS)
 	: Entity( x, y, w, h, d, v, mv, r, g, b)

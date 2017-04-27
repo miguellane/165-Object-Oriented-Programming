@@ -7,7 +7,6 @@
 class Boss : public Mob{
 
 public:
-	
 	Boss(int hp);
 
 };
