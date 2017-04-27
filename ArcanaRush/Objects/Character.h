@@ -9,10 +9,9 @@ class Character : public Mob{
 public:
 	int lives;
 	int bombs;
-//	int arcanaType;
 
-	Character(float x, float y, float w, float h);
-	std::vector<Bullet*> atk();
+	Character();
+	std::vector<Bullet*> fire();
 
 	std::vector<Bullet*> atk1();
 };

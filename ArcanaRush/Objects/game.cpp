@@ -3,7 +3,7 @@
 Game::Game(){
 	score = 0;
 	bossFight = false;
-	mc = new Character(0.0f, -0.5f, 0.01f, 0.01f);
+	mc = new Character();
 }
 void Game::update(){
 	size_t i;
@@ -14,14 +14,20 @@ void Game::update(){
 	for (i = 0; i < enemies.size(); i++)
 		enemies[i]->update();
 
-	std::vector<Bullet *> t = mc->atk();
+	std::vector<Bullet *> t;
+	t = mc->fire();
 	for(i = 0; i < t.size(); i++)
 		mcShots.push_back(t[i]);
-
-//	if (bossFight)
-//		boss->attack();
-//	for (i = 0; i < enemies.size(); i++)
-//		enemies[i]->attack();
+/*	if (bossFight){
+		t = boss->fire();
+		for (i = 0; i < t.size(); i++)
+			shots.push_back(t[i]);
+	}
+	for (i = 0; i < enemies.size(); i++){
+		t = enemies[i]->fire();
+		for (i = 0; i < t.size(); i++)
+			shots.push_back(t[i]);
+	}*/
 
 
 	for (i = 0; i < mcShots.size(); i++)

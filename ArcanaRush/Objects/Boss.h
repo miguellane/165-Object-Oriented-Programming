@@ -7,7 +7,8 @@ class Boss : public Mob{
 
 public:
 	
-	Boss(float x, float y, float w, float h, int hp, float aD, float aS);
+	Boss(int hp);
+
 };
 
 #endif
