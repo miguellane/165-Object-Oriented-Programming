@@ -14,10 +14,13 @@ void Game::update(){
 	for (i = 0; i < enemies.size(); i++)
 		enemies[i]->update();
 
+
 	std::vector<Bullet *> t;
 	t = mc->fire();
 	for(i = 0; i < t.size(); i++)
 		mcShots.push_back(t[i]);
+
+
 /*	if (bossFight){
 		t = boss->fire();
 		for (i = 0; i < t.size(); i++)
