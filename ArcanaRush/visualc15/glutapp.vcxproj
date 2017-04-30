@@ -122,6 +122,7 @@
     <ClCompile Include="..\Objects\character.cpp" />
     <ClCompile Include="..\Objects\entity.cpp" />
     <ClCompile Include="..\Objects\game.cpp" />
+    <ClCompile Include="..\Objects\mob.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\App.h" />
@@ -131,6 +132,7 @@
     <ClInclude Include="..\Objects\Character.h" />
     <ClInclude Include="..\Objects\Entity.h" />
     <ClInclude Include="..\Objects\Game.h" />
+    <ClInclude Include="..\Objects\Mob.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

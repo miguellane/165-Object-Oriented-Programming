@@ -2,12 +2,14 @@
 #define BULLET_H
 
 # include "Entity.h"
+
 class Bullet : public Entity {
 
 public:
-	float damage;
+	int damage;
 
-	Bullet(float x, float y, float w, float h, float d, float v, int mv, float dmg);
+	Bullet(float x, float y, float d, float v, int mv, int dmg);
+	Bullet(float x, float y, float w, float h, float d, float v, int mv, int dmg);
 
 };
 

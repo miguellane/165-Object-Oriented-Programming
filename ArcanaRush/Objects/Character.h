@@ -1,15 +1,20 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-# include "Entity.h"
+# include "Mob.h"
+# include "Bullet.h"
 
 class Character : public Mob{
 
 public:
 	int lives;
 	int bombs;
-//	int arcanaType;
 
-	Character(float x, float y, float w, float h);
+	Character();
+	std::vector<Bullet*> fire();
+
+	std::vector<Bullet*> atk4();
+	std::vector<Bullet*> atk5();
+	std::vector<Bullet*> atk6();
 };
 #endif

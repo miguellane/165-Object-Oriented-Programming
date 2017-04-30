@@ -1,6 +1,10 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+# include <vector>
+
+const double PI = (float)3.14159265359;
+
 class Entity{
 
 public:
@@ -14,22 +18,9 @@ public:
 	// float texture
 	float r, g, b;
 
-	Entity(float x, float y, float w, float h, float d, float v, float a, int mv, float r, float g, float b);
+	Entity(float x, float y, float w, float h, float d, float v, int mv, float r, float g, float b);
 	void update();
 	void draw();
 };
 
-class Mob : public Entity {
-
-public:
-	int health;
-	float atkSpeed;
-	float atkDamage;
-
-	Mob(float x, float y, float w, float h, float d, float v, float a, int mv, float r, float g, float b, int hp, float aD, float aS);
-
-	void mobAtk1();
-	void mobAtk2();
-	void mobAtk3();
-};
 #endif
