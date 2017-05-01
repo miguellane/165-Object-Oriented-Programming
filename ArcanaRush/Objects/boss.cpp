@@ -1,7 +1,7 @@
 #include "Boss.h"
 #include "GlutApp.h"
 
-Boss::Boss(float x, float y, float w, float h, float d, float v, int hp, float aD, float aS)
-	: Mob(x, y, w, h, d, v, 1.0f, 0.0f, 0.0f, hp, aD, aS)
+Boss::Boss(int hp)
+	: Mob(0.0f, 0.5f, 0.1f, 0.1f, 0.0f, 0.0f, 0, 0.0f, 0.0f, 1.0f, hp, 0, 1.0f, 0.0f)
 {
 }

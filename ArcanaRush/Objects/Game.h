@@ -9,7 +9,6 @@
 # include "Boss.h"
 # include "Bullet.h"
 
-
 class Game{
 	float score;
 	bool bossFight;

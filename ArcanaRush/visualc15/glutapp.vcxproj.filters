@@ -5,58 +5,64 @@
     <ClCompile Include="..\app_main.cpp" />
     <ClCompile Include="..\GlutApp.cpp" />
     <ClCompile Include="..\Objects\boss.cpp">
-      <Filter>Objects\boss</Filter>
+      <Filter>Game\Boss</Filter>
     </ClCompile>
     <ClCompile Include="..\Objects\bullet.cpp">
-      <Filter>Objects\bullet</Filter>
+      <Filter>Game\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="..\Objects\character.cpp">
-      <Filter>Objects\character</Filter>
+      <Filter>Game\Character</Filter>
     </ClCompile>
     <ClCompile Include="..\Objects\entity.cpp">
-      <Filter>Objects\entity</Filter>
+      <Filter>Game\Entity</Filter>
     </ClCompile>
     <ClCompile Include="..\Objects\game.cpp">
-      <Filter>Objects\game</Filter>
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Objects\mob.cpp">
+      <Filter>Game\Mob</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\App.h" />
     <ClInclude Include="..\GlutApp.h" />
     <ClInclude Include="..\Objects\Boss.h">
-      <Filter>Objects\boss</Filter>
+      <Filter>Game\Boss</Filter>
     </ClInclude>
     <ClInclude Include="..\Objects\Bullet.h">
-      <Filter>Objects\bullet</Filter>
+      <Filter>Game\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="..\Objects\Character.h">
-      <Filter>Objects\character</Filter>
+      <Filter>Game\Character</Filter>
     </ClInclude>
     <ClInclude Include="..\Objects\Entity.h">
-      <Filter>Objects\entity</Filter>
+      <Filter>Game\Entity</Filter>
     </ClInclude>
     <ClInclude Include="..\Objects\Game.h">
-      <Filter>Objects\game</Filter>
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Objects\Mob.h">
+      <Filter>Game\Mob</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Objects">
+    <Filter Include="Game">
       <UniqueIdentifier>{3bb514a6-6a6b-47d9-877b-1ab206d94cef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Objects\boss">
+    <Filter Include="Game\Boss">
       <UniqueIdentifier>{32feeef1-8c1a-4d36-9ecb-7064dd08eab7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Objects\bullet">
+    <Filter Include="Game\Bullet">
       <UniqueIdentifier>{046fc3d6-a2ac-48fc-8895-69d2e2300145}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Objects\character">
+    <Filter Include="Game\Character">
       <UniqueIdentifier>{49b124b0-85af-4fda-8415-d70c3ef1f18b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Objects\entity">
+    <Filter Include="Game\Entity">
       <UniqueIdentifier>{d46d6e7b-a0a6-44d0-be3f-7789e93d899a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Objects\game">
-      <UniqueIdentifier>{6a27c6d7-7242-4c9c-bf57-f77a2d055bbd}</UniqueIdentifier>
+    <Filter Include="Game\Mob">
+      <UniqueIdentifier>{5aa79a41-4a28-4181-90ba-57630e57f705}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

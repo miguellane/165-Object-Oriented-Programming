@@ -1,8 +1,8 @@
 #ifndef App_hpp
 #define App_hpp
 
-#include "GlutApp.h"
-#include "Objects/Game.h"
+# include "GlutApp.h"
+# include "Objects/Game.h"
 
 class App : public GlutApp {
 	float mx;

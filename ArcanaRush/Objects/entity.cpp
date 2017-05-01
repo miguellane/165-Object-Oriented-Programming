@@ -1,21 +1,45 @@
 #include "Entity.h"
 #include "GlutApp.h"
 
-Entity::Entity(float x, float y, float w, float h, float d, float v, float r, float g, float b){
+Entity::Entity(float x, float y, float w, float h, float d, float v, int mv, float r, float g, float b){
 	this->x = x;
 	this->y = y;
 	this->w = w;
 	this->h = h;
 	this->direction = d;
 	this->velocity = v;
+	this->acceleration = 0;
+	this->movePattern = mv;
 	this->r = r;
 	this->g = g;
 	this->b = b;
 }
 
-void Entity::update(){
+bool Entity::update(){
+	float dTweak = 0.001f;
+	float vTweak = 0.00001f;
+	float aTweak = 0.001f;
+
+	switch(movePattern){
+		case 0: velocity = 0; acceleration = 0; break;
+		case 1: break;
+		case 2: velocity += vTweak; break;
+		case 3: if(velocity > 0) velocity -= vTweak; else velocity = 0; break;
+		case 4: direction += dTweak; break;
+		case 5: direction -= dTweak; break;
+		case 6: acceleration += aTweak; break;
+		case 7: acceleration -= aTweak; break;
+	}
+
+
 	x += velocity * cos(direction);
 	y += velocity * sin(direction);
+	velocity += acceleration;
+
+	//if(x > 2 || x < -2 || y > 2 || y < -2)
+	//	return false;
+	return true;
+
 }
 void Entity::draw(){
 	glColor3f(r, g, b);
@@ -25,14 +49,4 @@ void Entity::draw(){
 	glVertex2f(x + w, y - h);
 	glVertex2f(x, y - h);
 	glEnd();
-}
-
-//MOB SUBCLASS IS DEFINED HERE
-Mob::Mob(float x, float y, float w, float h, float d, float v, float r, float g, float b, int hp, float aD, float aS)
-	: Entity( x, y, w, h, d, v, r, g, b)
-{
-	this->health = hp;
-	this->atkSpeed = aD;
-	this->atkDamage = aS;
-
 }
