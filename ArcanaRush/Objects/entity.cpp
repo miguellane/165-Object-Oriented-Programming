@@ -15,7 +15,7 @@ Entity::Entity(float x, float y, float w, float h, float d, float v, int mv, flo
 	this->b = b;
 }
 
-bool Entity::update(){
+void Entity::update(){
 	float dTweak = 0.001f;
 	float vTweak = 0.00001f;
 	float aTweak = 0.001f;
@@ -35,11 +35,6 @@ bool Entity::update(){
 	x += velocity * cos(direction);
 	y += velocity * sin(direction);
 	velocity += acceleration;
-
-	//if(x > 2 || x < -2 || y > 2 || y < -2)
-	//	return false;
-	return true;
-
 }
 void Entity::draw(){
 	glColor3f(r, g, b);
@@ -49,4 +44,9 @@ void Entity::draw(){
 	glVertex2f(x + w, y - h);
 	glVertex2f(x, y - h);
 	glEnd();
+}
+bool Entity::contains(float x, float y, float w, float h) {
+	;
+
+	return false;
 }
