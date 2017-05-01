@@ -11,6 +11,7 @@ public:
 	int atk;
 	float atkSpeed;
 	int atkDamage;
+	float atkCount;
 
 	Mob(float x, float y, float d, float v, int mv, int atk, float aS);
 	Mob(float x, float y, float w, float h, float d, float v, int mv, float r, float g, float b, int hp, int atk, int aD, float aS);

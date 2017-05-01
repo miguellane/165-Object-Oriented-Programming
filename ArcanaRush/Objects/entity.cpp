@@ -15,16 +15,16 @@ Entity::Entity(float x, float y, float w, float h, float d, float v, int mv, flo
 	this->b = b;
 }
 
-void Entity::update(){
+bool Entity::update(){
 	float dTweak = 0.001f;
-	float vTweak = 0.001f;
+	float vTweak = 0.00001f;
 	float aTweak = 0.001f;
 
 	switch(movePattern){
 		case 0: velocity = 0; acceleration = 0; break;
 		case 1: break;
 		case 2: velocity += vTweak; break;
-		case 3: velocity -= vTweak; break;
+		case 3: if(velocity > 0) velocity -= vTweak; else velocity = 0; break;
 		case 4: direction += dTweak; break;
 		case 5: direction -= dTweak; break;
 		case 6: acceleration += aTweak; break;
@@ -35,6 +35,11 @@ void Entity::update(){
 	x += velocity * cos(direction);
 	y += velocity * sin(direction);
 	velocity += acceleration;
+
+	//if(x > 2 || x < -2 || y > 2 || y < -2)
+	//	return false;
+	return true;
+
 }
 void Entity::draw(){
 	glColor3f(r, g, b);
