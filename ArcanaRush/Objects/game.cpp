@@ -7,6 +7,7 @@ Game::Game(){
 }
 void Game::update(){
 	size_t i;
+	std::vector<Bullet *> t;
 
 	mc->update();
 	if (bossFight)
@@ -15,7 +16,6 @@ void Game::update(){
 		enemies[i]->update();
 
 
-	std::vector<Bullet *> t;
 	t = mc->fire();
 	for(i = 0; i < t.size(); i++)
 		mcShots.push_back(t[i]);
