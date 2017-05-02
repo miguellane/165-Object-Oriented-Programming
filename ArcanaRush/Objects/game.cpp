@@ -62,7 +62,7 @@ bool Game::checkCollisions(const Entity & obj1, const Entity & obj2){
 }
 
 bool Game::checkBounds(float x, float y) {
-	if (x >= 0.97 || x <= -1 || y >= 0.97 || y <= -1) 
+	if (x >= 2.0 || x <= -2.0 || y >= 2.0 || y <= -2.0) 
 		return true;
 	else 
 		return false;
