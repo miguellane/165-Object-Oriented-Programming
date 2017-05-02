@@ -19,8 +19,9 @@ public:
 	float r, g, b;
 
 	Entity(float x, float y, float w, float h, float d, float v, int mv, float r, float g, float b);
-	bool update();
+	void update();
 	void draw();
+	bool contains(float x, float y, float w, float h);
 };
 
 #endif
