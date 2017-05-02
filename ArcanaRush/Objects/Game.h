@@ -25,6 +25,8 @@ public:
 	Game();
 	void update();
 	void draw();
+	bool checkCollisions(const Entity& bull, const Entity& mob);
+	bool checkBounds(float x, float y);
 
 	void wave1();
 	void wave2();
