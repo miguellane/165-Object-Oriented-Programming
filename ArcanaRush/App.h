@@ -18,6 +18,14 @@ public:
 	void mouseDrag(float x, float y);
 	void specialKeyPress(int key);
 	void idle();
+
+	GLuint loadTexture(const char* filename);
+
+	GLuint monalisa;
+	GLuint kyrilov;
+
+	TexRect* boss1;
+	TexRect* boss2;
 };
 
 #endif

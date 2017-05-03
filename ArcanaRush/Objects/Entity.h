@@ -24,14 +24,6 @@ public:
 	void update();
 	void draw();
 	bool contains(float x, float y, float w, float h);
-
-	GLuint loadTexture(const char* filename);
-
-	GLuint monalisa;
-	GLuint kyrilov;
-
-	TexRect* boss1;
-	TexRect* boss2;
 };
 
 #endif
