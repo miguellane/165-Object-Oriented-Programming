@@ -140,6 +140,7 @@
     <ClInclude Include="..\TexRect.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\kyrilov.bmp" />
     <Image Include="..\monalisa.bmp" />
     <Image Include="..\wall.bmp" />
   </ItemGroup>

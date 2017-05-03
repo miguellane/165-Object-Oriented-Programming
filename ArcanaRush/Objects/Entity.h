@@ -1,7 +1,9 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-# include <vector>
+#include <vector>
+#include "RgbImage.h"
+#include "TexRect.hpp"
 
 const double PI = (float)3.14159265359;
 
@@ -22,6 +24,14 @@ public:
 	void update();
 	void draw();
 	bool contains(float x, float y, float w, float h);
+
+	GLuint loadTexture(const char* filename);
+
+	GLuint monalisa;
+	GLuint kyrilov;
+
+	TexRect* boss1;
+	TexRect* boss2;
 };
 
 #endif
