@@ -22,6 +22,8 @@
     <ClCompile Include="..\Objects\mob.cpp">
       <Filter>Game\Mob</Filter>
     </ClCompile>
+    <ClCompile Include="..\RgbImage.cpp" />
+    <ClCompile Include="..\TexRect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\App.h" />
@@ -44,6 +46,8 @@
     <ClInclude Include="..\Objects\Mob.h">
       <Filter>Game\Mob</Filter>
     </ClInclude>
+    <ClInclude Include="..\RgbImage.h" />
+    <ClInclude Include="..\TexRect.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -64,5 +68,10 @@
     <Filter Include="Game\Mob">
       <UniqueIdentifier>{5aa79a41-4a28-4181-90ba-57630e57f705}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\monalisa.bmp" />
+    <Image Include="..\wall.bmp" />
+    <Image Include="..\kyrilov.bmp" />
   </ItemGroup>
 </Project>
