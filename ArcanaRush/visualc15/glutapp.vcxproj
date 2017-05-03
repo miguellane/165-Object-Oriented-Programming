@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BE3DDA17-F918-42E2-B822-4C8A6EF632C9}</ProjectGuid>
     <RootNamespace>glutapp</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -124,6 +124,8 @@
     <ClCompile Include="..\Objects\entity.cpp" />
     <ClCompile Include="..\Objects\game.cpp" />
     <ClCompile Include="..\Objects\mob.cpp" />
+    <ClCompile Include="..\RgbImage.cpp" />
+    <ClCompile Include="..\TexRect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\App.h" />
@@ -134,6 +136,12 @@
     <ClInclude Include="..\Objects\Entity.h" />
     <ClInclude Include="..\Objects\Game.h" />
     <ClInclude Include="..\Objects\Mob.h" />
+    <ClInclude Include="..\RgbImage.h" />
+    <ClInclude Include="..\TexRect.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\monalisa.bmp" />
+    <Image Include="..\wall.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
