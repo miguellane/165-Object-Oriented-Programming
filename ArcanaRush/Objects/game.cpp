@@ -4,7 +4,17 @@ Game::Game(){
 	score = 0;
 	bossFight = false;
 	mc = new Character();
+<<<<<<< HEAD
 
+=======
+	enemies.push_back(new Mob(-0.6f,0.1f,0.0f,0.0f,1,1,0.0f));// #bottom left
+	enemies.push_back(new Mob(-0.3f, 0.4f, 0.0f, 0.0f, 1, 1, 0.0f));// #top left
+	/*enemies.push_back(new Mob(0.3f, 0.1f, 0.0f, 0.0f, 1, 1, 0.0f)); //bottom right
+	enemies.push_back(new Mob(0.6f, 0.4f, 0.0f, 0.0f, 1, 1, 0.0f)); //top right
+	enemies.push_back(new Mob(0.0f, 0.4f, 0.0f, 0.0f, 1, 1, 0.0f)); //top right
+	enemies.push_back(new Mob(0.0f, 0.7f, 0.0f, 0.0f, 1, 1, 0.0f)); //top right
+	enemies.push_back(new Mob(0.1f, 0.7f, 0.0f, 0.0f, 1, 1, 0.0f)); //top right*/
+>>>>>>> origin/Jon
 }
 void Game::update(){
 	size_t i;
@@ -31,6 +41,7 @@ void Game::update(){
 			shots.push_back(t[i]);
 	}*/	
 
+<<<<<<< HEAD
 	//collision between mcshots and enemies
 	for (i = 0; i < mcShots.size(); i++) {
 		for (j = 0; j < enemies.size(); j++) {
@@ -92,6 +103,56 @@ void Game::update(){
 	//updates enemies shots
 	for (i = 0; i < shots.size(); i++)
 		shots[i]->update();
+=======
+	/*for (i = 0; i < mcShots.size(); i++) {
+		if (/*checkCollisions(*mcShots[i], *mc2) || checkBounds(mcShots[i]->x, mcShots[i]->y)) {
+			mcShots.erase(mcShots.begin() + i);
+			i--;
+		}
+		else
+			mcShots[i]->update();
+	}*/
+
+	//first shot doesn't work
+	//both lefts can't be destroyed one after the other in sesession first
+
+	for (i = 0; i < mcShots.size(); i++) {
+		for (j = 0; j < enemies.size(); j++) {
+			if (!enemies.empty() && checkCollisions(*mcShots[i], *enemies[j])) {
+				mcShots.erase(mcShots.begin() + i);
+				enemies.erase(enemies.begin() + j);
+				i--;
+				j--;
+				std::cout << "# of enemies: " << enemies.size() << std::endl;
+			}
+		}
+	}
+
+	for (i = 0; i < mcShots.size(); i++) {
+		if (checkBounds(mcShots[i]->x, mcShots[i]->y)) {
+			mcShots.erase(mcShots.begin() + i);
+			i--;
+
+			std::cout << "# of bullets: " << mcShots.size() << std::endl;
+		}
+	}
+
+	for (i = 0; i < enemies.size(); i++)
+		enemies[i]->update();
+
+	for (i = 0; i < mcShots.size(); i++)
+		mcShots[i]->update();
+
+
+	/*for (i = 0; i < shots.size(); i++) {
+		if (/*checkCollisions(*shots[i], *mc2) || checkBounds(shots[i]->x, shots[i]->y)) {
+			shots.erase(shots.begin() + i);
+			i--;
+		}
+		else
+			shots[i]->update();
+	}*/
+>>>>>>> origin/Jon
 		
 }
 
