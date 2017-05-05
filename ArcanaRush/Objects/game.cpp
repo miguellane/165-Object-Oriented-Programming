@@ -4,12 +4,16 @@ Game::Game() {
 	score = 0;
 	bossFight = false;
 	mc = new Character();
-
+	
+//	enemies.push_back(new Mob(0.1f, 0.7f, 0.0f, 0.0f, 0.0f, 3, 1.0f));
+	//enemies.push_back(new Mob(-0.1f, 0.0f, 0.0f, 0.0f, 0.0f, 3, 1.0f));//full flower
+	enemies.push_back(new Mob(0.0f, 0.0f, 0.0f, 0.0f, 2, 3, 3.5f));//bottom flower
 }
 void Game::update() {
 	size_t i;
 	size_t j;
-	std::vector<Bullet *> t;
+	std::vector<Bullet *> t; //mc and boss
+	std::vector<Bullet *> e; //enemies
 
 	//updates mc
 	mc->update();
@@ -41,9 +45,9 @@ void Game::update() {
 
 	//enemies shots
 	for (i = 0; i < enemies.size();i++) {
-		t = enemies[i]->fire();
-		for (i = 0; i < t.size(); i++)
-			shots.push_back(t[i]);
+		e = enemies[i]->fire();
+		for (i = 0; i < e.size(); i++)
+			shots.push_back(e[i]);
 	}
 
 	//collision between mcshots and enemies

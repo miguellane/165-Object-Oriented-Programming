@@ -38,16 +38,19 @@ void Entity::update(){
 
 void Entity::draw(){
 	glColor3f(r, g, b);
-	glBegin(GL_QUADS);
+	glBegin(GL_TRIANGLES);
 	glVertex2f(x, y);
 	glVertex2f(x + w, y);
 	glVertex2f(x + w, y - h);
+	
+	
 	glVertex2f(x, y - h);
+	glVertex2f(x, y);
+	glVertex2f(x + w, y - h);
 	glEnd();
 }
 
 bool Entity::contains(float x, float y, float w, float h) {
-	;
 
 	return false;
 }
