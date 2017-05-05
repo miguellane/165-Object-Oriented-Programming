@@ -27,6 +27,8 @@ std::vector<Bullet*> Mob::fire() {
 		atkCount -= atkSpeed;
 		switch (atk) {
 		case 1: t = atk1(); break;
+		case 2: t = atk2(); break;
+		case 3: t = atk3(); break;
 		}
 	}
 	return t;
@@ -35,6 +37,20 @@ std::vector<Bullet*> Mob::fire() {
 std::vector<Bullet*> Mob::atk1() {
 	std::vector<Bullet *> t;
 	Bullet* shot = new Bullet(x, y, 0.01f, 0.01f, PI / 2, 0.001f, 1, atkDamage);
+	t.push_back(shot);
+	return t;
+}
+
+std::vector<Bullet*> Mob::atk2() {
+	std::vector<Bullet *> t;
+	Bullet* shot = new Bullet(x, y, 0.01f, 0.01f, 3*PI / 2, 0.001f, 1, atkDamage);
+	t.push_back(shot);
+	return t;
+}
+
+std::vector<Bullet*> Mob::atk3() {
+	std::vector<Bullet *> t;
+	Bullet* shot = new Bullet(x, y, 0.01f, 0.01f, PI , 0.001f, 1, atkDamage);
 	t.push_back(shot);
 	return t;
 }

@@ -11,25 +11,40 @@ void Game::update() {
 	size_t j;
 	std::vector<Bullet *> t;
 
+	//updates mc
 	mc->update();
-
-	if (bossFight)
+		
+	//updates boss fight
+	if (bossFight){
 		boss->update();
+		t = boss->fire();
+		for (i = 0; i < t.size(); i++)
+			shots.push_back(t[i]);
+	}
 
+	//updates enemies
+	for (i = 0; i < enemies.size(); i++)
+		enemies[i]->update();
+
+	//updates mcShots
+	for (i = 0; i < mcShots.size(); i++)
+		mcShots[i]->update();
+
+	//updates enemies shots
+	for (i = 0; i < shots.size(); i++)
+		shots[i]->update();
+
+	//mc shots
 	t = mc->fire();
 	for (i = 0; i < t.size(); i++)
 		mcShots.push_back(t[i]);
 
-	/*	if (bossFight){
-	t = boss->fire();
-	for (i = 0; i < t.size(); i++)
-	shots.push_back(t[i]);
+	//enemies shots
+	for (i = 0; i < enemies.size();i++) {
+		t = enemies[i]->fire();
+		for (i = 0; i < t.size(); i++)
+			shots.push_back(t[i]);
 	}
-	for (i = 0; i < enemies.size(); i++){
-	t = enemies[i]->fire();
-	for (i = 0; i < t.size(); i++)
-	shots.push_back(t[i]);
-	}*/
 
 	//collision between mcshots and enemies
 	for (i = 0; i < mcShots.size(); i++) {
@@ -46,14 +61,21 @@ void Game::update() {
 		}
 	}
 
-	/*//collision between enemies shots and mc
+	//collision between enemies shots and mc
 	for (i = 0; i < shots.size(); i++) {
-	if (!shots.empty() && checkCollisions(*mcShots[i], *mc)) {
-	mc->health--;
-	//if (mc->health < 0)
-	//delete mc some how
+		if (!shots.empty() && checkCollisions(*shots[i], *mc)) {
+			mc->health--;
+			if (mc->health < 0) {
+				mc->lives--;
+				if (mc->lives == 0)
+					delete mc;
+				else {
+					mc->x = 0.0f; 
+					mc->y = -0.5f;
+				}
+			}
+		}
 	}
-	}*/
 
 	//Deletes enemies that go out of bound
 	for (i = 0; i < enemies.size(); i++) {
@@ -72,7 +94,7 @@ void Game::update() {
 		}
 	}
 
-	//Deletes enemies that go out of bound
+	//Deletes enemies shots that go out of bound
 	for (i = 0; i < shots.size(); i++) {
 		if (checkBounds(shots[i]->x, shots[i]->y)) {
 			shots[i] = shots.back();
@@ -80,18 +102,6 @@ void Game::update() {
 			i--;
 		}
 	}
-
-	//updates enemies
-	for (i = 0; i < enemies.size(); i++)
-		enemies[i]->update();
-
-	//updates mcShots
-	for (i = 0; i < mcShots.size(); i++)
-		mcShots[i]->update();
-
-	//updates enemies shots
-	for (i = 0; i < shots.size(); i++)
-		shots[i]->update();
 
 }
 
