@@ -14,6 +14,7 @@ class Game{
 	bool bossFight;
 public:
 	Character* mc;
+	Mob* dummy;
 	std::vector<Bullet*> mcShots;
 	Boss* boss;
 	std::vector<Mob*> enemies;

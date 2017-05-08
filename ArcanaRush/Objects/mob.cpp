@@ -27,6 +27,11 @@ std::vector<Bullet*> Mob::fire() {
 		atkCount -= atkSpeed;
 		switch (atk) {
 		case 1: t = atk1(); break;
+		case 2: t = atk2(); break;
+		case 3: t = atk3(); break;
+		case 4: t = atk4(); break;
+		case 5: t = atk5(); break;
+		case 6: t = atk6(); break;
 		}
 	}
 	return t;
@@ -35,6 +40,45 @@ std::vector<Bullet*> Mob::fire() {
 std::vector<Bullet*> Mob::atk1() {
 	std::vector<Bullet *> t;
 	Bullet* shot = new Bullet(x, y, 0.01f, 0.01f, PI / 2, 0.001f, 1, atkDamage);
+	t.push_back(shot);
+	return t;
+}std::vector<Bullet*> Mob::atk2() {
+	std::vector<Bullet *> t;
+	Bullet* shot = new Bullet(x, y, 0.01f, 0.01f,3* PI / 2, 0.001f, 1, atkDamage);
+	t.push_back(shot);
+	return t;
+}
+std::vector<Bullet*> Mob::atk3() {
+	std::vector<Bullet *> t;
+	Bullet* lshot = new Bullet(x, y, 0.01f, 0.01f, 5*PI / 8, 0.001f, 1, atkDamage);
+	Bullet* mshot = new Bullet(x, y, 0.01f, 0.01f, PI / 2, 0.001f, 1, atkDamage);
+	Bullet* rshot = new Bullet(x, y, 0.01f, 0.01f, 3 * PI / 8, 0.001f, 1, atkDamage);
+	t.push_back(lshot);
+	t.push_back(mshot);
+	t.push_back(rshot);
+	return t;
+}
+std::vector<Bullet*> Mob::atk4() {
+	std::vector<Bullet *> t;
+	Bullet* lshot = new Bullet(x, y, 0.01f, 0.01f, 11 * PI / 8, 0.001f, 1, atkDamage);
+	Bullet* mshot = new Bullet(x, y, 0.01f, 0.01f, 3 * PI / 2, 0.001f, 1, atkDamage);
+	Bullet* rshot = new Bullet(x, y, 0.01f, 0.01f, 13 * PI / 8, 0.001f, 1, atkDamage);
+	t.push_back(lshot);
+	t.push_back(mshot);
+	t.push_back(rshot);
+	return t;
+}
+std::vector<Bullet*> Mob::atk5() {
+	std::vector<Bullet *> t;
+	Bullet* shot = new Bullet(x, y, 0.03f, 0.03f, PI / 2, 0.001f, 1, 3*atkDamage);
+
+	t.push_back(shot);
+	return t;
+}
+std::vector<Bullet*> Mob::atk6() {
+	std::vector<Bullet *> t;
+	Bullet* shot = new Bullet(x, y, 0.03f, 0.03f, 3 * PI / 2, 0.001f, 1, 3 * atkDamage);
+
 	t.push_back(shot);
 	return t;
 }
