@@ -33,5 +33,7 @@ public:
 	void midBoss();
 	void wave3();
 	void finBoss();
+
+	int waveCounter;
 };
 #endif
