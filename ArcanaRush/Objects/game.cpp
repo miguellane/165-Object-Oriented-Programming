@@ -5,11 +5,15 @@ Game::Game() {
 	bossFight = false;
 	mc = new Character();
 
+	//enemies.push_back(new Mob(0.0f, 0.0f, 0.0f, 0.0f, 1, 2, 1.0f));
+	//enemies.push_back(new Mob(0.3f, 0.0f, 0.0f, 0.0f, 1, 2, 1.0f));
+	
 }
 void Game::update() {
 	size_t i;
 	size_t j;
-	std::vector<Bullet *> t;
+	std::vector<Bullet *> t; //mc and boss
+	std::vector<Bullet *> e; //enemies
 
 	//updates mc
 	mc->update();
@@ -41,16 +45,17 @@ void Game::update() {
 
 	//enemies shots
 	for (i = 0; i < enemies.size();i++) {
-		t = enemies[i]->fire();
-		for (i = 0; i < t.size(); i++)
-			shots.push_back(t[i]);
+		e = enemies[i]->fire();
+		for (i = 0; i < e.size(); i++)
+			shots.push_back(e[i]);
 	}
 
 	//collision between mcshots and enemies
 	for (i = 0; i < mcShots.size(); i++) {
 		for (j = 0; j < enemies.size(); j++) {
 			if (!enemies.empty() && checkCollisions(*mcShots[i], *enemies[j])) {
-				mcShots.erase(mcShots.begin() + i);
+				mcShots[i] = mcShots.back();
+				mcShots.pop_back();
 				enemies.erase(enemies.begin() + j);
 				j--;
 				if (i == 0)
@@ -118,6 +123,12 @@ bool Game::checkBounds(float x, float y) {
 		return true;
 	else
 		return false;
+}
+
+void Game::wave1()
+{
+	enemies.push_back(new Mob(0.0f, 0.0f, 0.0f, 0.0f, 1, 2, 1.0f));
+
 }
 
 void Game::draw() {
