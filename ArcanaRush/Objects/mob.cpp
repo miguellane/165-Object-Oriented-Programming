@@ -29,9 +29,12 @@ std::vector<Bullet*> Mob::fire() {
 		case 1: t = atk1(); break;
 		case 2: t = atk2(); break;
 		case 3: t = atk3(); break;
+<<<<<<< HEAD
 		case 4: t = atk4(); break;
 		case 5: t = atk5(); break;
 		case 6: t = atk6(); break;
+=======
+>>>>>>> refs/remotes/origin/master
 		}
 	}
 	return t;
@@ -42,6 +45,7 @@ std::vector<Bullet*> Mob::atk1() {
 	Bullet* shot = new Bullet(x, y, 0.01f, 0.01f, PI / 2, 0.001f, 1, atkDamage);
 	t.push_back(shot);
 	return t;
+<<<<<<< HEAD
 }std::vector<Bullet*> Mob::atk2() {
 	std::vector<Bullet *> t;
 	Bullet* shot = new Bullet(x, y, 0.01f, 0.01f,3* PI / 2, 0.001f, 1, atkDamage);
@@ -79,6 +83,20 @@ std::vector<Bullet*> Mob::atk6() {
 	std::vector<Bullet *> t;
 	Bullet* shot = new Bullet(x, y, 0.03f, 0.03f, 3 * PI / 2, 0.001f, 1, 3 * atkDamage);
 
+=======
+}
+
+std::vector<Bullet*> Mob::atk2() {
+	std::vector<Bullet *> t;
+	Bullet* shot = new Bullet(x, y, 0.01f, 0.01f, 3*PI / 2, 0.001f, 1, atkDamage);
+	t.push_back(shot);
+	return t;
+}
+
+std::vector<Bullet*> Mob::atk3() {
+	std::vector<Bullet *> t;
+	Bullet* shot = new Bullet(x, y, 0.01f, 0.01f, PI , 0.001f, 1, atkDamage);
+>>>>>>> refs/remotes/origin/master
 	t.push_back(shot);
 	return t;
 }

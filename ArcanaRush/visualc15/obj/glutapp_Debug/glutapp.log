@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  mob.cpp
 c:\users\mattc\onedrive\documents\github\165-object-oriented-programming\165-object-oriented-programming\arcanarush\objects\mob.cpp(47): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\mattc\onedrive\documents\github\165-object-oriented-programming\165-object-oriented-programming\arcanarush\objects\mob.cpp(53): warning C4305: 'argument': truncation from 'double' to 'float'
@@ -7,4 +8,8 @@ c:\users\mattc\onedrive\documents\github\165-object-oriented-programming\165-obj
 c:\users\mattc\onedrive\documents\github\165-object-oriented-programming\165-object-oriented-programming\arcanarush\objects\mob.cpp(65): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\mattc\onedrive\documents\github\165-object-oriented-programming\165-object-oriented-programming\arcanarush\objects\mob.cpp(80): warning C4305: 'argument': truncation from 'double' to 'float'
   glutapp.vcxproj -> C:\Users\mattc\OneDrive\Documents\GitHub\165-Object-Oriented-Programming\165-Object-Oriented-Programming\ArcanaRush\visualc15\obj\glutapp_Debug\glutapp.exe
+=======
+﻿  game.cpp
+  glutapp.vcxproj -> C:\Users\Kari\Documents\GitHub\165-Object-Oriented-Programming\ArcanaRush\visualc15\obj\glutapp_Debug\glutapp.exe
+>>>>>>> refs/remotes/origin/master
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
