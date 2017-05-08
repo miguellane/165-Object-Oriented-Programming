@@ -4,10 +4,10 @@ Game::Game() {
 	score = 0;
 	bossFight = false;
 	mc = new Character();
+
+	//enemies.push_back(new Mob(0.0f, 0.0f, 0.0f, 0.0f, 1, 2, 1.0f));
+	//enemies.push_back(new Mob(0.3f, 0.0f, 0.0f, 0.0f, 1, 2, 1.0f));
 	
-//	enemies.push_back(new Mob(0.1f, 0.7f, 0.0f, 0.0f, 0.0f, 3, 1.0f));
-	//enemies.push_back(new Mob(-0.1f, 0.0f, 0.0f, 0.0f, 0.0f, 3, 1.0f));//full flower
-	enemies.push_back(new Mob(0.0f, 0.0f, 0.0f, 0.0f, 2, 3, 3.5f));//bottom flower
 }
 void Game::update() {
 	size_t i;
@@ -54,7 +54,8 @@ void Game::update() {
 	for (i = 0; i < mcShots.size(); i++) {
 		for (j = 0; j < enemies.size(); j++) {
 			if (!enemies.empty() && checkCollisions(*mcShots[i], *enemies[j])) {
-				mcShots.erase(mcShots.begin() + i);
+				mcShots[i] = mcShots.back();
+				mcShots.pop_back();
 				enemies.erase(enemies.begin() + j);
 				j--;
 				if (i == 0)
@@ -122,6 +123,12 @@ bool Game::checkBounds(float x, float y) {
 		return true;
 	else
 		return false;
+}
+
+void Game::wave1()
+{
+	enemies.push_back(new Mob(0.0f, 0.0f, 0.0f, 0.0f, 1, 2, 1.0f));
+
 }
 
 void Game::draw() {
