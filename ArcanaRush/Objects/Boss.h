@@ -8,7 +8,7 @@ class Boss : public Mob{
 
 public:
 	Boss(int hp);
-
+	std::vector<Bullet*> fire();
 };
 
 #endif

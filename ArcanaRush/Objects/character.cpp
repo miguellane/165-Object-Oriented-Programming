@@ -7,16 +7,3 @@ Character::Character()
 	this->lives = 3;
 	this->bombs = 3;
 }
-
-std::vector<Bullet*> Character::fire(){
-	atkCount += 0.001f;
-	std::vector<Bullet *> t;
-
-	if(atkCount / atkSpeed >= 1){
-		atkCount -= atkSpeed;
-		switch(atk){
-			case 1: t = atk1(); break;
-		}
-	}
-	return t;
-}

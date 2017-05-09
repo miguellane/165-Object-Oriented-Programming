@@ -4,7 +4,7 @@ Game::Game() {
 	score = 0;
 	bossFight = false;
 	mc = new Character();
-	waveCounter = 1;
+	waveCounter = 5;
 	
 }
 void Game::update() {
@@ -21,7 +21,7 @@ void Game::update() {
 			case 2: wave2(); waveCounter++; break;
 			case 3: midBoss(); waveCounter++; break;
 			case 4: wave3(); waveCounter++; break;
-			case 5: finBoss(); bossFight = true; break;
+			case 5: finBoss(); bossFight = true; waveCounter++; break;
 
 		}
 	}
@@ -50,7 +50,12 @@ void Game::update() {
 					break;
 
 				//kills boss when hp is low
-				if (boss->health < 0) delete boss;
+				std::cout << "health: " << boss->health<<std::endl;
+				if (boss->health < 0) {
+					delete boss;
+					bossFight = false;
+				}
+					
 
 				//Game over you win!
 			}
@@ -123,7 +128,7 @@ void Game::update() {
 
 	//Deletes mcshots that go out of bound
 	for (i = 0; i < mcShots.size(); i++) {
-		if (checkBounds(mcShots[i]->x, mcShots[i]->y)) {
+		if (checkBoundsBullets(mcShots[i]->x, mcShots[i]->y)) {
 			mcShots[i] = mcShots.back();
 			mcShots.pop_back();
 			i--;
@@ -132,7 +137,7 @@ void Game::update() {
 
 	//Deletes enemies shots that go out of bound
 	for (i = 0; i < shots.size(); i++) {
-		if (checkBounds(shots[i]->x, shots[i]->y)) {
+		if (checkBoundsBullets(shots[i]->x, shots[i]->y)) {
 			shots[i] = shots.back();
 			shots.pop_back();
 			i--;
@@ -156,15 +161,22 @@ bool Game::checkBounds(float x, float y) {
 		return false;
 }
 
+bool Game::checkBoundsBullets(float x, float y) {
+	if (x >= 1.0 || x <= -1.0 || y >= 1.0 || y <= -1.0)
+		return true;
+	else
+		return false;
+}
+
 void Game::wave1()
 {
-	enemies.push_back(new Mob(0.5f, 0.4f, 0.0f, 0.0f, 1, 2, 1.0f));
+	enemies.push_back(new Mob(0.5f, 0.4f, 0.0f, 0.0f, 1, 6, 1.0f));
 
 }
 
 void Game::wave2()
 {
-	enemies.push_back(new Mob(0.0f, 0.0f, 0.0f, 0.0f, 1, 3, 1.0f));
+	enemies.push_back(new Mob(0.0f, 0.0f, 0.0f, 0.0f, 1, 5, 1.0f));
 
 }
 
