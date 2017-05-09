@@ -10,6 +10,7 @@ public:
 
 	Bullet(float x, float y, float d, float v, int mv, int dmg);
 	Bullet(float x, float y, float w, float h, float d, float v, int mv, int dmg);
+	Bullet(float x, float y, float w, float h, float d, float v, int mv, int dmg, float r, float g, float b);
 
 };
 

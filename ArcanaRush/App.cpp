@@ -39,6 +39,7 @@ void App::draw() {
 
 	game.draw();
 
+	glColor3f(1.0, 1.0, 1.0);
 	glBindTexture(GL_TEXTURE_2D, 5);
 	background->draw();
 	glDisable(GL_TEXTURE_2D);

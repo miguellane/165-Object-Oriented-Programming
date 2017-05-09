@@ -29,8 +29,9 @@ void Game::update() {
 	}
 
 	//Update MC: Obj -> Fire -> Bullets[ If(OutBounds) ElseIf(BossCollide)] && EnemyCollision
-	if (outBoundsInner(mc->x, mc->y))
-		mcDeath();
+	if (outBoundsInner(mc->x, mc->y)) {
+			mcDeath();
+	}
 	else {
 		mc->update();
 		mc->fire(mcShots);
@@ -47,6 +48,7 @@ void Game::update() {
 				if (boss->health < 0) {
 					delete boss;
 					bossFight = false;
+					godMode = true;
 				}
 			} else
 				mcShots[i]->update();
@@ -106,7 +108,8 @@ void Game::update() {
 }
 
 bool Game::mcDeath() {
-	mc->lives--;
+	if(!godMode)
+		mc->lives--;
 	if (mc->lives == 0) {
 		delete mc;
 		pause = true;
@@ -159,13 +162,13 @@ void Game::wave2()
 
 void Game::wave3()
 {
-	//inflates shot
-	//enemies.push_back(new Mob(0.3f,0.8f,0.0f,0.0f,1,10,1.5f));
-	//enemies.push_back(new Mob(-0.3f, 0.8f, 0.0f, 0.0f, 1, 10, 1.5f));
 
 	//half circle
-	enemies.push_back(new Mob(0.7f, 0.7f, 0.0f, 0.0f, 1, 4, 1.5f));
-	enemies.push_back(new Mob(-0.7f, 0.7f, 0.0f, 0.0f, 1, 4, 1.5f));
+	enemies.push_back(new Mob(0.0f, 0.8f, 0.0f, 0.0f, 1, 10, 1.5f));
+
+	enemies.push_back(new Mob(-0.6f, -0.7f, 0.0f, 0.0f, 1, 11, 1.5f));
+
+	enemies.push_back(new Mob(0.6f, -0.7f, 0.0f, 0.0f, 1, 11, 1.5f));
 
 	ta++;
 	if (ta == 5)
@@ -247,7 +250,7 @@ void Game::draw() {
 	mc->draw();
 
 	glColor3f(1.0, 1.0, 1.0);
-	if (pause)
+	if (pause && mc->lives >= 0)
 		DrawString(GLUT_BITMAP_HELVETICA_18, "PAUSE", -0.1, 0.0);
 
 	glColor3f(1.0, 0.0, 0.0);
@@ -258,6 +261,7 @@ void Game::draw() {
 	case 2:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 2", 0.7, 0.92);	break;
 	case 1:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 1", 0.7, 0.92);	break;
 	case 0:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 0", 0.7, 0.92);	break;
+	default:DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 0", 0.7, 0.92);	break;
 	}
 
 	glColor3f(0.0, 0.0, 1.0);
@@ -269,8 +273,7 @@ void Game::draw() {
 	default: DrawString(GLUT_BITMAP_HELVETICA_18, "Bombs: 0", 0.68, 0.85);	break;
 	}
 
-
-
+	glColor3f(1.0, 0.0, 0.0);
 	if (mc->lives <= 0)
 		DrawString(GLUT_BITMAP_HELVETICA_18, "YOU ARE DEAD!", -0.22, -0.5);
 
