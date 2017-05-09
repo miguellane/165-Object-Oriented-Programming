@@ -4,7 +4,7 @@ Game::Game() {
 	score = 0;
 	bossFight = false;
 	mc = new Character();
-	waveCounter = 5;
+	waveCounter = 1;
 }
 void Game::update() {
 	size_t i;
@@ -133,10 +133,11 @@ bool Game::outBoundsInner(float x, float y) {
 
 void Game::wave1()
 {
-	enemies.push_back(new Mob(0.5f, 0.4f, 0.0f, 0.0f, 1, 6, 1.0f));
-	enemies.push_back(new Mob(-0.5f, 0.4f, 0.0f, 0.0f, 1, 6, 1.0f));
-	enemies.push_back(new Mob(0.5f, -0.4f, 0.0f, 0.0f, 1, 6, 1.0f));
-	enemies.push_back(new Mob(-0.5f, -0.4f, 0.0f, 0.0f, 1, 6, 1.0f));
+	enemies.push_back(new Mob(0.0f, 0.0f, 0.0f, 0.0001f, 9, 2, 1.0f));
+	enemies.push_back(new Mob(0.4f, .4f, 0.0f, 0.0f, 1, 2, 1.0f));
+	enemies.push_back(new Mob(0.2f, .4f, 0.0f, 0.0f, 1, 2, 1.0f));
+	enemies.push_back(new Mob(0.0f, .4f, 0.0f, 0.0f, 1, 2, 1.0f));
+
 }
 
 void Game::wave2()

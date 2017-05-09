@@ -33,6 +33,7 @@ void Mob::fire(std::vector<Bullet*>& t){
 		case 7: atk7(t); break;
 		case 8: atk8(t); break;
 		case 9: atk9(t); break;
+		case 10: atk10(t); break;
 		}
 	}
 	return;
@@ -108,4 +109,17 @@ void  Mob::atk9(std::vector<Bullet*>& t) {//right
 	float gunx = x+w;
 	float guny = y - h / 2;
 	t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(2 * PI), 0.001f, 1, atkDamage));
+}
+
+void Mob::atk10(std::vector<Bullet*>& t) {// lower half flower
+	float gunx = x + w / 2;
+	float guny = y - h;
+
+	float v = 0.0001f;
+	for (int i = 180; i <= 360; i += 15) {
+		if (i % 2 == 0)
+			t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(i * PI / 180), v, 8, atkDamage));
+		else
+			t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(i * PI / 180), v, 8, atkDamage));
+	}
 }
