@@ -91,10 +91,10 @@ void App::specialKeyPress(int key) {
 	const float incf = 0.05f;
 	float shiftx = 0, shifty = 0;
 	switch (key) {
-	case GLUT_KEY_LEFT:		shiftx -= incf; break;
-	case GLUT_KEY_RIGHT:	shiftx += incf; break;
-	case GLUT_KEY_UP:		shifty += incf; break;
-	case GLUT_KEY_DOWN:		shifty -= incf; break;
+	case GLUT_KEY_LEFT:		game.mc->atk = 8; break;
+	case GLUT_KEY_RIGHT:	game.mc->atk = 9; break;
+	case GLUT_KEY_UP:		game.mc->atk = 1; break;
+	case GLUT_KEY_DOWN:		game.mc->atk = 2; break;
 	}
 }
 void App::idle() {

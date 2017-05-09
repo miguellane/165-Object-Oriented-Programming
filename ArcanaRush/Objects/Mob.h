@@ -23,6 +23,9 @@ public:
 	void atk4(std::vector<Bullet*>& t);
 	void atk5(std::vector<Bullet*>& t);
 	void atk6(std::vector<Bullet*>& t);
+	void atk7(std::vector<Bullet*>& t);
+	void atk8(std::vector<Bullet*>& t);
+	void atk9(std::vector<Bullet*>& t);
 
 };
 #endif

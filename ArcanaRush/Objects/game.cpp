@@ -4,12 +4,11 @@ Game::Game() {
 	score = 0;
 	bossFight = false;
 	mc = new Character();
-	waveCounter = 1;
+	waveCounter = 5;
 }
 void Game::update() {
 	size_t i;
 	size_t j;
-	std::vector<Bullet *> t; //temp
 
 	//manages the waves
 	if (enemies.size() == 0 && bossFight == false) {
@@ -81,9 +80,6 @@ void Game::update() {
 			shots[i]->update();
 	}
 
-
-
-
 	//collision between mcshots and enemies
 	for (i = 0; i < mcShots.size(); i++) {
 		for (j = 0; j < enemies.size(); j++) {
@@ -116,7 +112,7 @@ bool Game::mcDeath() {
 
 bool Game::checkCollisions(const Entity *obj1, const Entity *obj2) {
 	bool collisionX = obj1->x + obj1->w >= obj2->x && obj2->x + obj2->w >= obj1->x;
-	bool collisionY = obj1->y + obj1->h >= obj2->y && obj2->y + obj2->h >= obj1->y;
+	bool collisionY = obj1->y - obj1->h <= obj2->y && obj2->y - obj2->h <= obj1->y;
 
 	return collisionX && collisionY;
 }
@@ -138,7 +134,9 @@ bool Game::outBoundsInner(float x, float y) {
 void Game::wave1()
 {
 	enemies.push_back(new Mob(0.5f, 0.4f, 0.0f, 0.0f, 1, 6, 1.0f));
-	enemies.push_back(new Mob(-0.5f, 0.4f, 0.0f, 0.0f, 1, 5, 1.0f));
+	enemies.push_back(new Mob(-0.5f, 0.4f, 0.0f, 0.0f, 1, 6, 1.0f));
+	enemies.push_back(new Mob(0.5f, -0.4f, 0.0f, 0.0f, 1, 6, 1.0f));
+	enemies.push_back(new Mob(-0.5f, -0.4f, 0.0f, 0.0f, 1, 6, 1.0f));
 }
 
 void Game::wave2()
