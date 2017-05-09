@@ -9,6 +9,19 @@ Game::Game() {
 	mc = new Character();
 	boss = new Boss(100);
 	waveCounter = 1;
+
+	std::cout << "*Arcane Rush*" << std::endl;
+	std::cout << "-Objective-" << std::endl;
+	std::cout << "Shoot the enemies, defeat the boss, survive!" << std::endl;
+
+	std::cout << "-Controls-" << std::endl;
+	std::cout << "W - Up" << std::endl;
+	std::cout << "A - Left" << std::endl;
+	std::cout << "S - Down" << std::endl;
+	std::cout << "D - Right" << std::endl;
+	std::cout << "P - Pause" << std::endl;
+	std::cout << "E - Bombs" << std::endl;
+
 }
 void Game::update() {
 	size_t i;
