@@ -34,6 +34,7 @@ void Mob::fire(std::vector<Bullet*>& t){
 		case 8: atk8(t); break;
 		case 9: atk9(t); break;
 		case 10: atk10(t); break;
+		case 11: atk11(t); break;
 		}
 	}
 	return;
@@ -76,7 +77,7 @@ void Mob::atk5(std::vector<Bullet*>& t){// spiral flower
 		t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(i * PI / 180), v, 4, atkDamage));
 
 }
-void Mob::atk6(std::vector<Bullet*>& t){// lower half flower
+void Mob::atk6(std::vector<Bullet*>& t){// lower half flower cross directional
 	float gunx = x + w / 2;
 	float guny = y - h;
 
@@ -111,7 +112,7 @@ void  Mob::atk9(std::vector<Bullet*>& t) {//right
 	t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(2 * PI), 0.001f, 1, atkDamage));
 }
 
-void Mob::atk10(std::vector<Bullet*>& t) {// lower half flower
+void Mob::atk10(std::vector<Bullet*>& t) {// lower half flower inflate
 	float gunx = x + w / 2;
 	float guny = y - h;
 
@@ -121,5 +122,15 @@ void Mob::atk10(std::vector<Bullet*>& t) {// lower half flower
 			t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(i * PI / 180), v, 8, atkDamage));
 		else
 			t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(i * PI / 180), v, 8, atkDamage));
+	}
+}
+
+void Mob::atk11(std::vector<Bullet*>& t) {// upper half flower
+	float gunx = x + w / 2;
+	float guny = y + 0.03;
+
+	float v = 0.0001f;
+	for (int i = 0; i <= 180; i += 15) {
+		t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(i * PI / 180), v, 6, atkDamage));
 	}
 }

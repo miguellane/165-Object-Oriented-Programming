@@ -31,7 +31,7 @@ void Entity::update(){
 		case 6: acceleration += aTweak; break;
 		case 7: acceleration -= aTweak; break;
 		case 8: w += inflate; h += inflate; break;
-		case 9: direction += dTweak * 2; break;
+		case 9: direction += dTweak * 3; break;
 	}
 
 	x += velocity * cos(direction);

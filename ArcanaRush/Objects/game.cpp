@@ -3,6 +3,7 @@
 Game::Game() {
 	score = 0;
 	pause = false;
+	godMode = false;
 	ta = 2;
 	bossFight = false;
 	mc = new Character();
@@ -21,8 +22,8 @@ void Game::update() {
 			case 3: wave3(); waveCounter++;  break;
 			case 4: wave4(); waveCounter++; break;
 			case 5: wave5(); waveCounter++; break;
-			case 6: wave5(); waveCounter++; break;
-			case 7: wave5(); waveCounter++; break;
+			case 6: wave6(); waveCounter++; break;
+			case 7: wave7(); waveCounter++; break;
 			case 8: finBoss(); bossFight = true; waveCounter++; break;
 		}
 	}
@@ -77,7 +78,7 @@ void Game::update() {
 			shots.pop_back();
 			i--;
 
-		} else if (!shots.empty() && checkCollisions(shots[i], mc)) {
+		} else if (!godMode&&!shots.empty() && checkCollisions(shots[i], mc)) {
 				mc->health -= shots[i]->damage;
 				if (mc->health < 0) {
 					mcDeath();
@@ -188,10 +189,11 @@ void Game::wave4()
 
 void Game::wave5()
 {
-	enemies.push_back(new Mob(-0.5f, 0.5f, 0.0f, 0.0f, 1, 3, 1.0f));
-	enemies.push_back(new Mob(0.5f, 0.5f, 0.0f, 0.0f, 1,3, 1.0f));
-	enemies.push_back(new Mob(-0.5f, -0.5f, 0.0f, 0.0f, 1, 3, 1.0f));
-	enemies.push_back(new Mob(0.5f, -0.5f, 0.0f, 0.0f, 1, 3, 1.0f));
+	enemies.push_back(new Mob(-0.5f, 1.0f, (float)(3 * PI/2), 0.0001f, 1, 7, 1.5f));
+	enemies.push_back(new Mob(0.5f, 1.0f, (float)(3 * PI/2), 0.0001f, 1, 7, 1.5f));
+
+	enemies.push_back(new Mob(-0.5f, -1.0f, (float)(PI/2), 0.0001f, 1, 11, 1.5f));
+	enemies.push_back(new Mob(0.5f, -1.0f, (float)(PI/2), 0.0001f, 1, 11, 1.5f));
 
 	ta++;
 	if (ta == 5)

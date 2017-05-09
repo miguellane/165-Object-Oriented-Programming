@@ -2,7 +2,7 @@
 #include "GlutApp.h"
 
 Boss::Boss(int hp)
-	: Mob(-0.1f, 0.5f, 0.2f, 0.25f, 0.0f, 0.0f, 0, 1.0f, 1.0f, 1.0f, hp, 1, 1, 1.0f)
+	: Mob(-0.1f, 0.3f, 0.2f, 0.25f, 0.0f, 0.0001f, 9, 1.0f, 1.0f, 1.0f, hp, 1, 1, 1.0f)
 {
 }
 
