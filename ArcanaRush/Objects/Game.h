@@ -31,6 +31,8 @@ public:
 	bool mcDeath();
 	bool pause;
 
+	void DrawString(void *font, const char s[], float x, float y);
+
 	void wave1();
 	void wave2();
 	void wave3();

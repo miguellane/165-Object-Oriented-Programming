@@ -13,8 +13,8 @@ void Boss::fire(std::vector<Bullet*>& t)
 		atkCount -= atkSpeed;
 		if (health < 20) atk6(t); else
 		if (health < 40) atk5(t); else
-		if (health < 60) atk4(t); else
-		if (health < 80) atk3(t); else
-		atk2(t);
+		if (health < 60) atk6(t); else
+		if (health < 80) atk5(t); else
+		atk3(t);
 	}
 }

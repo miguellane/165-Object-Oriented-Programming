@@ -5,7 +5,7 @@ Game::Game() {
 	pause = false;
 	bossFight = false;
 	mc = new Character();
-	waveCounter = 1;
+	waveCounter = 8;
 }
 void Game::update() {
 	size_t i;
@@ -202,10 +202,30 @@ void Game::finBoss()
 
 }
 
+void Game::DrawString(void *font, const char s[], float x, float y)
+{
+	unsigned int i;
+	glRasterPos2f(x, y);
+	for (i = 0; i<strlen(s); i++)
+	{
+		glutBitmapCharacter(font, s[i]);
+	}
+}
+
 void Game::draw() {
 	size_t i;
 
 	mc->draw();
+
+	glColor3f(1.0, 0.0, 0.0);
+	switch (mc->lives) {
+	case 5:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 5", 0.7, 0.92);	break;
+	case 4:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 4", 0.7, 0.92);	break;
+	case 3:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 3", 0.7, 0.92);	break;
+	case 2:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 2", 0.7, 0.92);	break;
+	case 1:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 1", 0.7, 0.92);	break;
+	case 0:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 0", 0.7, 0.92);	break;
+	}
 
 	if (bossFight) {
 		glBindTexture(GL_TEXTURE_2D, 1);
