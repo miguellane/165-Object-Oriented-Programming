@@ -7,7 +7,7 @@ Game::Game() {
 	bossFight = false;
 	mc = new Character();
 	boss = new Boss(100);
-	waveCounter = 7;
+	waveCounter = 8;
 }
 void Game::update() {
 	size_t i;
