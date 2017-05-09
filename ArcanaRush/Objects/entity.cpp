@@ -18,7 +18,8 @@ Entity::Entity(float x, float y, float w, float h, float d, float v, int mv, flo
 void Entity::update(){
 	float dTweak = 0.000125f;
 	float vTweak = 0.00001f;
-	float aTweak = 0.001f;
+	float aTweak = 0.0000000001f;
+	float inflate = 0.000005f;
 
 	switch(movePattern){
 		case 0: velocity = 0; acceleration = 0; break;
@@ -29,6 +30,8 @@ void Entity::update(){
 		case 5: direction -= dTweak; break;
 		case 6: acceleration += aTweak; break;
 		case 7: acceleration -= aTweak; break;
+		case 8: w += inflate; h += inflate; break;
+		case 9: direction += dTweak * 2; break;
 	}
 
 	x += velocity * cos(direction);

@@ -9,16 +9,16 @@ Game::Game() {
 void Game::update() {
 	size_t i;
 	size_t j;
-	std::vector<Bullet *> t; //temp
 
 	//manages the waves
 	if (enemies.size() == 0 && bossFight == false) {
 		switch (waveCounter) {
 			case 1: wave1(); waveCounter++;  break;
 			case 2: wave2(); waveCounter++; break;
-			case 3: midBoss(); waveCounter++; break;
-			case 4: wave3(); waveCounter++; break;
-			case 5: finBoss(); bossFight = true; waveCounter++; break;
+			case 3: wave3(); waveCounter++;  break;
+			case 4: wave4(); waveCounter++; break;
+			case 5: wave5(); waveCounter++; break;
+			case 6: finBoss(); bossFight = true; waveCounter++; break;
 		}
 	}
 
@@ -81,9 +81,6 @@ void Game::update() {
 			shots[i]->update();
 	}
 
-
-
-
 	//collision between mcshots and enemies
 	for (i = 0; i < mcShots.size(); i++) {
 		for (j = 0; j < enemies.size(); j++) {
@@ -116,7 +113,7 @@ bool Game::mcDeath() {
 
 bool Game::checkCollisions(const Entity *obj1, const Entity *obj2) {
 	bool collisionX = obj1->x + obj1->w >= obj2->x && obj2->x + obj2->w >= obj1->x;
-	bool collisionY = obj1->y + obj1->h >= obj2->y && obj2->y + obj2->h >= obj1->y;
+	bool collisionY = obj1->y - obj1->h <= obj2->y && obj2->y - obj2->h <= obj1->y;
 
 	return collisionX && collisionY;
 }
@@ -137,24 +134,45 @@ bool Game::outBoundsInner(float x, float y) {
 
 void Game::wave1()
 {
-	enemies.push_back(new Mob(0.5f, 0.4f, 0.0f, 0.0f, 1, 6, 1.0f));
-	enemies.push_back(new Mob(-0.5f, 0.4f, 0.0f, 0.0f, 1, 5, 1.0f));
+	//inflates shot
+	enemies.push_back(new Mob(0.3f,0.8f,0.0f,0.0f,1,10,1.5f));
+	enemies.push_back(new Mob(-0.3f, 0.8f, 0.0f, 0.0f, 1, 10, 1.5f));
+
+	//half circle
+	enemies.push_back(new Mob(0.5f, 0.3f, 0.0f, 0.0f, 1, 4, 1.5f));
+	enemies.push_back(new Mob(-0.5f, 0.3f, 0.0f, 0.0f, 1, 4, 1.5f));
+
 }
 
 void Game::wave2()
 {
-	enemies.push_back(new Mob(0.0f, 0.0f, 0.0f, 0.0f, 1, 5, 1.0f));
-
+	enemies.push_back(new Mob(1.0f, 0.3f, (float)(PI), 0.0001f, 1, 3, 1.5f));
+	enemies.push_back(new Mob(-1.0f, 0.5f, (float)(2*PI), 0.0001f, 1, 3, 1.5f));
+	
+	enemies.push_back(new Mob(1.0f, -0.3f, (float)(PI), 0.0001f, 1, 3, 1.5f));
+	enemies.push_back(new Mob(-1.0f, -0.5f, (float)(2 * PI), 0.0001f, 1, 3, 1.5f));
+	
 }
-
-void Game::midBoss()
-{
-	enemies.push_back(new Mob(0.3f, 0.0f, 0.0f, 0.0f, 1, 3, 1.0f));
-
-}
-
 
 void Game::wave3()
+{
+	enemies.push_back(new Mob(-0.5f, 0.5f, 0.0f, 0.0f, 1, 3, 1.0f));
+	enemies.push_back(new Mob(0.5f, 0.5f, 0.0f, 0.0f, 1,3, 1.0f));
+	enemies.push_back(new Mob(-0.5f, -0.5f, 0.0f, 0.0f, 1, 3, 1.0f));
+	enemies.push_back(new Mob(0.5f, -0.5f, 0.0f, 0.0f, 1, 3, 1.0f));
+	
+}
+
+void Game::wave4()
+{
+	enemies.push_back(new Mob(-0.5f, 0.0f, 0.0f, 0.0f, 1, 5, .5f));
+	enemies.push_back(new Mob(0.5f, 0.0f, 0.0f, 0.0f, 1, 5, .5f));
+	enemies.push_back(new Mob(0.0f, 0.5f, 0.0f, 0.0f, 1, 5, .5f));
+	enemies.push_back(new Mob(0.0f, -0.5f, 0.0f, 0.0f, 1, 5, .5f));
+
+}
+
+void Game::wave5()
 {
 	enemies.push_back(new Mob(0.6f, 0.1f, 0.0f, 0.0f, 1, 4, 1.0f));
 
