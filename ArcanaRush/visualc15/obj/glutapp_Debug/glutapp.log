@@ -1,3 +1,9 @@
-﻿  character.cpp
+﻿  game.cpp
+c:\users\markmiller\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(222): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\markmiller\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(223): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\markmiller\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(224): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\markmiller\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(225): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\markmiller\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(226): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\markmiller\documents\github\165-object-oriented-programming\arcanarush\objects\game.cpp(227): warning C4305: 'argument': truncation from 'double' to 'float'
   glutapp.vcxproj -> C:\Users\MarkMiller\Documents\GitHub\165-Object-Oriented-Programming\ArcanaRush\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)

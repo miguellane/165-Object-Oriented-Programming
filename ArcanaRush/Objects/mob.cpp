@@ -2,7 +2,7 @@
 #include "GlutApp.h"
 
 Mob::Mob(float x, float y, float d, float v, int mv, int atk, float aS)
-	: Entity(x, y, 0.17f, 0.17f, d, v, mv, 1.0f, 1.0f, 1.0f)
+	: Entity(x, y, 0.1f, 0.1f, d, v, mv, 1.0f, 1.0f, 1.0f)
 {
 	this->health = 5;
 	this->atk = atk;

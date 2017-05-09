@@ -23,7 +23,6 @@ public:
 //	float background;
 
 	Game();
-	int ta;
 	void update();
 	void draw();
 	bool checkCollisions(const Entity *bull, const Entity *mob);

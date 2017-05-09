@@ -3,11 +3,9 @@
 Game::Game() {
 	score = 0;
 	pause = false;
-	ta = 2;
 	bossFight = false;
 	mc = new Character();
-	boss = new Boss(100);
-	waveCounter = 7;
+	waveCounter = 8;
 }
 void Game::update() {
 	size_t i;
@@ -106,10 +104,9 @@ void Game::update() {
 
 bool Game::mcDeath() {
 	mc->lives--;
-	if (mc->lives == 0) {
-		delete mc;
-		pause = true;
-	}
+	std::cout << "YOU ARE DEAD!" << std::endl;
+	if (mc->lives == 0)
+		exit(0);
 	else {
 		mc->x = 0.0f;
 		mc->y = -0.5f;
@@ -150,10 +147,6 @@ void Game::wave2()
 	enemies.push_back(new Mob(-0.8f, 0.5f, (float)(PI), 0.0f, 1, 9, 1.5f));
 	enemies.push_back(new Mob(0.5f, -0.6f, (float)(2 * PI), 0.0f, 1, 8, 1.5f));
 
-	ta++;
-	if (ta == 5)
-		ta = 2;
-
 }
 
 void Game::wave3()
@@ -166,10 +159,6 @@ void Game::wave3()
 	enemies.push_back(new Mob(0.7f, 0.7f, 0.0f, 0.0f, 1, 4, 1.5f));
 	enemies.push_back(new Mob(-0.7f, 0.7f, 0.0f, 0.0f, 1, 4, 1.5f));
 
-	ta++;
-	if (ta == 5)
-		ta = 2;
-
 }
 
 void Game::wave4()
@@ -179,10 +168,6 @@ void Game::wave4()
 	
 	enemies.push_back(new Mob(1.0f, -0.3f, (float)(PI), 0.0001f, 1, 3, 1.5f));
 	enemies.push_back(new Mob(-1.0f, -0.5f, (float)(2 * PI), 0.0001f, 1, 3, 1.5f));
-
-	ta++;
-	if (ta == 5)
-		ta = 2;
 	
 }
 
@@ -192,10 +177,6 @@ void Game::wave5()
 	enemies.push_back(new Mob(0.5f, 0.5f, 0.0f, 0.0f, 1,3, 1.0f));
 	enemies.push_back(new Mob(-0.5f, -0.5f, 0.0f, 0.0f, 1, 3, 1.0f));
 	enemies.push_back(new Mob(0.5f, -0.5f, 0.0f, 0.0f, 1, 3, 1.0f));
-
-	ta++;
-	if (ta == 5)
-		ta = 2;
 	
 }
 
@@ -206,26 +187,18 @@ void Game::wave6()
 	enemies.push_back(new Mob(0.0f, 0.5f, 0.0f, 0.0f, 1, 5, .5f));
 	enemies.push_back(new Mob(0.0f, -0.5f, 0.0f, 0.0f, 1, 5, .5f));
 
-	ta++;
-	if (ta == 5)
-		ta = 2;
-
 }
 
 void Game::wave7()
 {
 	enemies.push_back(new Mob(0.0f, 0.9f, 0.0f, 0.0f, 1, 10, 1.0f));
 
-	ta++;
-	if (ta == 5)
-		ta = 2;
-
 }
 
 void Game::finBoss()
 {
 	//enemies.push_back(new Mob(0.0f, 0.0f, 0.0f, 0.0f, 1, 2, 1.0f));
-	//boss = new Boss(100);
+	boss = new Boss(100);
 
 }
 
@@ -254,22 +227,13 @@ void Game::draw() {
 	case 0:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 0", 0.7, 0.92);	break;
 	}
 
-	if (mc->lives <= 0)
-		DrawString(GLUT_BITMAP_HELVETICA_18, "YOU ARE DEAD!", -0.22, -0.5);
-
-	glColor3f(0.0, 0.0, 1.0);
-	if (boss->health < 0) {
-		DrawString(GLUT_BITMAP_HELVETICA_18, "YOU HAVE DEFEATED ANGELO!", -0.45, -0.5);
-		DrawString(GLUT_BITMAP_HELVETICA_18, "YOU WIN!", -0.15, -0.65);
-	}
-
 	if (bossFight) {
 		glBindTexture(GL_TEXTURE_2D, 1);
 		boss->drawTex();
 		glDisable(GL_TEXTURE_2D);
 	}
 	for (i = 0; i < enemies.size(); i++) {
-		glBindTexture(GL_TEXTURE_2D, ta);
+		glBindTexture(GL_TEXTURE_2D, 2);
 		enemies[i]->drawTex();
 		glDisable(GL_TEXTURE_2D);
 	}
