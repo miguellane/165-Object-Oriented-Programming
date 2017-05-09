@@ -22,5 +22,7 @@ public:
 	std::vector<Bullet*> atk3();
 	std::vector<Bullet*> atk4();
 	std::vector<Bullet*> atk5();
+	std::vector<Bullet*> atk6();
+
 };
 #endif
