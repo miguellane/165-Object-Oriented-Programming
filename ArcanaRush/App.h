@@ -25,6 +25,9 @@ public:
 	GLuint wei;
 	GLuint shang;
 	GLuint xin;
+	GLuint galaxy;
+
+	TexRect* background;
 };
 
 #endif
