@@ -15,14 +15,14 @@ public:
 
 	Mob(float x, float y, float d, float v, int mv, int atk, float aS);
 	Mob(float x, float y, float w, float h, float d, float v, int mv, float r, float g, float b, int hp, int atk, int aD, float aS);
-	std::vector<Bullet*> fire();
+	void fire(std::vector<Bullet*>& t);
 
-	std::vector<Bullet*> atk1();
-	std::vector<Bullet*> atk2();
-	std::vector<Bullet*> atk3();
-	std::vector<Bullet*> atk4();
-	std::vector<Bullet*> atk5();
-	std::vector<Bullet*> atk6();
+	void atk1(std::vector<Bullet*>& t);
+	void atk2(std::vector<Bullet*>& t);
+	void atk3(std::vector<Bullet*>& t);
+	void atk4(std::vector<Bullet*>& t);
+	void atk5(std::vector<Bullet*>& t);
+	void atk6(std::vector<Bullet*>& t);
 
 };
 #endif

@@ -19,54 +19,41 @@ Mob::Mob(float x, float y, float w, float h, float d, float v, int mv, float r, 
 	this->atkSpeed = aS;
 	this->atkCount = 0;
 }
-std::vector<Bullet*> Mob::fire() {
+void Mob::fire(std::vector<Bullet*>& t){
 	atkCount += 0.001f;
-	std::vector<Bullet *> t;
-
 	if (atkCount / atkSpeed >= 1) {
 		atkCount -= atkSpeed;
 		switch (atk) {
-		case 1: t = atk1(); break;
-		case 2: t = atk2(); break;
-		case 3: t = atk3(); break;
-		case 4: t = atk4(); break;
-		case 5: t = atk5(); break;
-		case 6: t = atk6(); break;
+		case 1: atk1(t); break;
+		case 2: atk2(t); break;
+		case 3: atk3(t); break;
+		case 4: atk4(t); break;
+		case 5: atk5(t); break;
+		case 6: atk6(t); break;
 		}
 	}
-	return t;
+	return;
 }
-
-std::vector<Bullet*> Mob::atk1() {//upward
+void  Mob::atk1(std::vector<Bullet*>& t){//upward
 	float gunx = x + w / 2;
 	float guny = y;
-	std::vector<Bullet *> t;
 	t.push_back(new Bullet(x, y, 0.01f, 0.01f, PI / 2, 0.001f, 1, atkDamage));
-	return t;
 }
 
-std::vector<Bullet*> Mob::atk2() {//downward
+void  Mob::atk2(std::vector<Bullet*>& t){//downward
 	float gunx = x ;
 	float guny = y - h / 2;
-	std::vector<Bullet *> t;
 	t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, 3*PI / 2, 0.001f, 1, atkDamage));
-	return t;
 }
-
-std::vector<Bullet*> Mob::atk3() {// full flower
-	std::vector<Bullet *> t;
-
+void  Mob::atk3(std::vector<Bullet*>& t){// full flower
 	float v = 0.0001f;
 	float gunx = x + w / 2;
 	float guny = y - h/2;
 	for (int i = 0; i < 360; i += 15) 
 		t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, i * PI/180, v, 1, atkDamage));
-	
-	return t;
 }
 
-std::vector<Bullet*> Mob::atk4() {// lower half flower
-	std::vector<Bullet *> t;
+void Mob::atk4(std::vector<Bullet*>& t){// lower half flower
 	float gunx = x + w / 2;
 	float guny = y - h;
 
@@ -74,22 +61,17 @@ std::vector<Bullet*> Mob::atk4() {// lower half flower
 	for (int i = 180; i <= 360; i += 15) {
 		t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, i * PI/180, v, 1, atkDamage));
 	}
-	return t;
 }
 
-std::vector<Bullet*> Mob::atk5() {// spiral flower
-	std::vector<Bullet *> t;
-
+void Mob::atk5(std::vector<Bullet*>& t){// spiral flower
 	float v = 0.0001f;
 	float gunx = x + w / 2;
 	float guny = y - h / 2;
 	for (int i = 0; i < 360; i += 15)
 		t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, i * PI / 180, v, 4, atkDamage));
 
-	return t;
 }
-std::vector<Bullet*> Mob::atk6() {// lower half flower
-	std::vector<Bullet *> t;
+void Mob::atk6(std::vector<Bullet*>& t){// lower half flower
 	float gunx = x + w / 2;
 	float guny = y - h;
 
@@ -100,5 +82,4 @@ std::vector<Bullet*> Mob::atk6() {// lower half flower
 		else
 			t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, i * PI / 180, v, 5, atkDamage));
 	}
-	return t;
 }

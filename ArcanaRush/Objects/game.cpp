@@ -4,95 +4,94 @@ Game::Game() {
 	score = 0;
 	bossFight = false;
 	mc = new Character();
-	waveCounter = 5;
-	
+	waveCounter = 1;
 }
 void Game::update() {
 	size_t i;
 	size_t j;
-	std::vector<Bullet *> t; //mc and boss
-	std::vector<Bullet *> e; //enemies
+	std::vector<Bullet *> t; //temp
 
 	//manages the waves
 	if (enemies.size() == 0 && bossFight == false) {
 		switch (waveCounter) {
-
 			case 1: wave1(); waveCounter++;  break;
 			case 2: wave2(); waveCounter++; break;
 			case 3: midBoss(); waveCounter++; break;
 			case 4: wave3(); waveCounter++; break;
 			case 5: finBoss(); bossFight = true; waveCounter++; break;
-
 		}
 	}
 
-	//updates mc
-	mc->update();
-		
-	//updates boss fight, boss bullets, and mc to boss collision
-	if (bossFight){
-
-		boss->update();
-		t = boss->fire();
-		for (i = 0; i < t.size(); i++)
-			shots.push_back(t[i]);
-
+	//Update MC: Obj -> Fire -> Bullets[ If(OutBounds) ElseIf(BossCollide)] && EnemyCollision
+	if (outBoundsInner(mc->x, mc->y))
+		mcDeath();
+	else {
+		mc->update();
+		mc->fire(mcShots);
 		for (i = 0; i < mcShots.size(); i++) {
-			if (!mcShots.empty() && checkCollisions(*mcShots[i], *boss)) {
-				//does damage
-				boss->health -= mcShots[i]->damage;
-				
-				//deletes bullet
+			if (outBoundsInner(mcShots[i]->x, mcShots[i]->y)) {
 				mcShots[i] = mcShots.back();
 				mcShots.pop_back();
 				i--;
-				if (i < 0)
-					break;
-
-				//kills boss when hp is low
-				std::cout << "health: " << boss->health<<std::endl;
+			} else if (bossFight && checkCollisions(mcShots[i], boss)) {
+				boss->health -= mcShots[i]->damage;
+				mcShots[i] = mcShots.back();
+				mcShots.pop_back();
+				i--;
 				if (boss->health < 0) {
 					delete boss;
 					bossFight = false;
 				}
-					
-
-				//Game over you win!
-			}
+			} else
+				mcShots[i]->update();
 		}
 	}
 
-	//updates enemies
-	for (i = 0; i < enemies.size(); i++)
-		enemies[i]->update();
-
-	//updates mcShots
-	for (i = 0; i < mcShots.size(); i++)
-		mcShots[i]->update();
-
-	//updates enemies shots
-	for (i = 0; i < shots.size(); i++)
-		shots[i]->update();
-
-	//mc shots
-	t = mc->fire();
-	for (i = 0; i < t.size(); i++)
-		mcShots.push_back(t[i]);
-
-	//enemies shots
-	for (i = 0; i < enemies.size();i++) {
-		e = enemies[i]->fire();
-		for (i = 0; i < e.size(); i++)
-			shots.push_back(e[i]);
+	//Update Boss[ If(On) ]: Obj -> Fire
+	if (bossFight){
+		boss->update();
+		boss->fire(shots);
 	}
+
+	//Update Enemies[ If(!OutBounds) ]: Obj -> Fire
+	for (i = 0; i < enemies.size(); i++) {
+
+		if (outBoundsOuter(enemies[i]->x, enemies[i]->y)) {
+			enemies.erase(enemies.begin() + i);
+			i--;
+		} else {
+			enemies[i]->update();
+			enemies[i]->fire(shots);
+		}
+	}
+
+	//Update EnemyShots: Obj[ If(OutBounds) ElseIf(Collide) ]
+	for (i = 0; i < shots.size(); i++) {
+		if (outBoundsInner(shots[i]->x, shots[i]->y)) {
+			shots[i] = shots.back();
+			shots.pop_back();
+			i--;
+
+		} else if (!shots.empty() && checkCollisions(shots[i], mc)) {
+				mc->health -= shots[i]->damage;
+				if (mc->health < 0) {
+					mcDeath();
+				}
+		} else
+			shots[i]->update();
+	}
+
+
+
 
 	//collision between mcshots and enemies
 	for (i = 0; i < mcShots.size(); i++) {
 		for (j = 0; j < enemies.size(); j++) {
-			if (!enemies.empty() && checkCollisions(*mcShots[i], *enemies[j])) {
+			if (!enemies.empty() && checkCollisions(mcShots[i], enemies[j])) {
 				mcShots[i] = mcShots.back();
 				mcShots.pop_back();
-				enemies.erase(enemies.begin() + j);
+				enemies[j] = enemies.back();
+				enemies.pop_back();
 				j--;
 				if (i == 0)
 					break;
@@ -101,67 +100,35 @@ void Game::update() {
 			}
 		}
 	}
-
-	//collision between enemies shots and mc
-	for (i = 0; i < shots.size(); i++) {
-		if (!shots.empty() && checkCollisions(*shots[i], *mc)) {
-			mc->health-= shots[i]->damage;
-			if (mc->health < 0) {
-				mc->lives--;
-				if (mc->lives == 0)
-					delete mc;
-				else {
-					mc->x = 0.0f; 
-					mc->y = -0.5f;
-				}
-			}
-		}
-	}
-
-	//Deletes enemies that go out of bound
-	for (i = 0; i < enemies.size(); i++) {
-		if (checkBounds(enemies[i]->x, enemies[i]->y)) {
-			enemies.erase(enemies.begin() + i);
-			i--;
-		}
-	}
-
-	//Deletes mcshots that go out of bound
-	for (i = 0; i < mcShots.size(); i++) {
-		if (checkBoundsBullets(mcShots[i]->x, mcShots[i]->y)) {
-			mcShots[i] = mcShots.back();
-			mcShots.pop_back();
-			i--;
-		}
-	}
-
-	//Deletes enemies shots that go out of bound
-	for (i = 0; i < shots.size(); i++) {
-		if (checkBoundsBullets(shots[i]->x, shots[i]->y)) {
-			shots[i] = shots.back();
-			shots.pop_back();
-			i--;
-		}
-	}
-
 }
 
-bool Game::checkCollisions(const Entity & obj1, const Entity & obj2) {
+bool Game::mcDeath() {
+	mc->lives--;
+	std::cout << "YOU ARE DEAD!" << std::endl;
+	if (mc->lives == 0)
+		exit(0);
+	else {
+		mc->x = 0.0f;
+		mc->y = -0.5f;
+	}
+	return true;
+}
 
-	bool collisionX = obj1.x + obj1.w >= obj2.x && obj2.x + obj2.w >= obj1.x;
-	bool collisionY = obj1.y + obj1.h >= obj2.y && obj2.y + obj2.h >= obj1.y;
+bool Game::checkCollisions(const Entity *obj1, const Entity *obj2) {
+	bool collisionX = obj1->x + obj1->w >= obj2->x && obj2->x + obj2->w >= obj1->x;
+	bool collisionY = obj1->y + obj1->h >= obj2->y && obj2->y + obj2->h >= obj1->y;
 
 	return collisionX && collisionY;
 }
 
-bool Game::checkBounds(float x, float y) {
+bool Game::outBoundsOuter(float x, float y) {
 	if (x >= 2.0 || x <= -2.0 || y >= 2.0 || y <= -2.0)
 		return true;
 	else
 		return false;
 }
 
-bool Game::checkBoundsBullets(float x, float y) {
+bool Game::outBoundsInner(float x, float y) {
 	if (x >= 1.0 || x <= -1.0 || y >= 1.0 || y <= -1.0)
 		return true;
 	else
@@ -171,7 +138,7 @@ bool Game::checkBoundsBullets(float x, float y) {
 void Game::wave1()
 {
 	enemies.push_back(new Mob(0.5f, 0.4f, 0.0f, 0.0f, 1, 6, 1.0f));
-
+	enemies.push_back(new Mob(-0.5f, 0.4f, 0.0f, 0.0f, 1, 5, 1.0f));
 }
 
 void Game::wave2()

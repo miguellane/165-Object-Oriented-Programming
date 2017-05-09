@@ -6,17 +6,15 @@ Boss::Boss(int hp)
 {
 }
 
-std::vector<Bullet*> Boss::fire()
+void Boss::fire(std::vector<Bullet*> t)
 {
 	atkCount += 0.001f;
-	std::vector<Bullet *> t;
 	if (atkCount / atkSpeed >= 1) {
 		atkCount -= atkSpeed;
-		if (health < 20) t = atk6(); else
-		if (health < 40) t = atk5(); else
-		if (health < 60) t = atk4(); else
-		if (health < 80) t = atk3(); else
-		t = atk2();
+		if (health < 20) atk6(t); else
+		if (health < 40) atk5(t); else
+		if (health < 60) atk4(t); else
+		if (health < 80) atk3(t); else
+		atk2(t);
 	}
-	return t;
 }
