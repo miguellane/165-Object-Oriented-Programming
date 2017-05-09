@@ -30,6 +30,7 @@ public:
 	bool outBoundsOuter(float x, float y);
 	bool outBoundsInner(float x, float y);
 	bool mcDeath();
+	bool godMode;
 	bool pause;
 
 	void DrawString(void *font, const char s[], float x, float y);

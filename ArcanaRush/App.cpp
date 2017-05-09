@@ -59,6 +59,7 @@ void App::keyPress(unsigned char key) {
 				else
 					game.pause = false;
 		break;
+	case 'z': game.godMode = !game.godMode;	break;
 		//case ' ':	game.mc->bombs() = ; break;
 	case 'w':	game.mc->direction = (float)(PI / 2); game.mc->velocity = v; break;
 	case 'a':	game.mc->direction = (float)(PI); game.mc->velocity = v; break;
