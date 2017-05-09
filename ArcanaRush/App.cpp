@@ -9,6 +9,9 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	wei = loadTexture("..\\wei.bmp");
 	shang = loadTexture("..\\shang.bmp");
 	xin = loadTexture("..\\xin.bmp");
+	galaxy = loadTexture("..\\galaxy.bmp");
+
+	background = new TexRect(-1.0, 1.0, 2.0, 2.0);
 }
 
 GLuint App::loadTexture(const char *filename) {
@@ -35,6 +38,10 @@ void App::draw() {
 	glLoadIdentity();
 
 	game.draw();
+
+	glBindTexture(GL_TEXTURE_2D, 5);
+	background->draw();
+	glDisable(GL_TEXTURE_2D);
 
 	glFlush();
 	glutSwapBuffers();

@@ -74,5 +74,6 @@
     <Image Include="..\shang.bmp" />
     <Image Include="..\wei.bmp" />
     <Image Include="..\xin.bmp" />
+    <Image Include="..\galaxy.bmp" />
   </ItemGroup>
 </Project>
