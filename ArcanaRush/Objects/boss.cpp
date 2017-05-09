@@ -2,6 +2,19 @@
 #include "GlutApp.h"
 
 Boss::Boss(int hp)
-	: Mob(0.0f, 0.5f, 0.1f, 0.1f, 0.0f, 0.0f, 0, 0.0f, 0.0f, 1.0f, hp, 0, 1.0f, 0.0f)
+	: Mob(0.0f, 0.5f, 0.1f, 0.1f, 0.0f, 0.0f, 0, 0.0f, 0.0f, 1.0f, hp, 0, 1, 1.0f)
 {
+}
+
+void Boss::fire(std::vector<Bullet*> t)
+{
+	atkCount += 0.001f;
+	if (atkCount / atkSpeed >= 1) {
+		atkCount -= atkSpeed;
+		if (health < 20) atk6(t); else
+		if (health < 40) atk5(t); else
+		if (health < 60) atk4(t); else
+		if (health < 80) atk3(t); else
+		atk2(t);
+	}
 }

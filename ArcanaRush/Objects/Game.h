@@ -25,13 +25,17 @@ public:
 	Game();
 	void update();
 	void draw();
-	bool checkCollisions(const Entity& bull, const Entity& mob);
-	bool checkBounds(float x, float y);
+	bool checkCollisions(const Entity *bull, const Entity *mob);
+	bool outBoundsOuter(float x, float y);
+	bool outBoundsInner(float x, float y);
+	bool mcDeath();
 
 	void wave1();
 	void wave2();
 	void midBoss();
 	void wave3();
 	void finBoss();
+
+	int waveCounter;
 };
 #endif
