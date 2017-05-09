@@ -4,7 +4,7 @@ Game::Game() {
 	score = 0;
 	bossFight = false;
 	mc = new Character();
-	waveCounter = 1;
+	waveCounter = 5;
 }
 void Game::update() {
 	size_t i;
@@ -174,7 +174,7 @@ void Game::wave4()
 
 void Game::wave5()
 {
-	enemies.push_back(new Mob(0.6f, 0.1f, 0.0f, 0.0f, 1, 4, 1.0f));
+	enemies.push_back(new Mob(0.0f, 0.9f, 0.0f, 0.0f, 1, 10, 1.0f));
 
 }
 
