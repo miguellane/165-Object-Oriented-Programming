@@ -46,7 +46,7 @@ void  Mob::atk1(std::vector<Bullet*>& t){//upward
 }
 
 void  Mob::atk2(std::vector<Bullet*>& t){//downward
-	float gunx = x ;
+	float gunx = x + w / 2;
 	float guny = y - h / 2;
 	t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(3*PI / 2), 0.001f, 1, atkDamage));
 }

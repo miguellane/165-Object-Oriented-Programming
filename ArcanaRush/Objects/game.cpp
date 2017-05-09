@@ -8,7 +8,7 @@ Game::Game() {
 	bossFight = false;
 	mc = new Character();
 	boss = new Boss(100);
-	waveCounter = 8;
+	waveCounter = 1;
 }
 void Game::update() {
 	size_t i;
@@ -246,6 +246,10 @@ void Game::draw() {
 
 	mc->draw();
 
+	glColor3f(1.0, 1.0, 1.0);
+	if (pause)
+		DrawString(GLUT_BITMAP_HELVETICA_18, "PAUSE", -0.1, 0.0);
+
 	glColor3f(1.0, 0.0, 0.0);
 	switch (mc->lives) {
 	case 5:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 5", 0.7, 0.92);	break;
@@ -255,6 +259,17 @@ void Game::draw() {
 	case 1:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 1", 0.7, 0.92);	break;
 	case 0:	DrawString(GLUT_BITMAP_HELVETICA_18, "Lives: 0", 0.7, 0.92);	break;
 	}
+
+	glColor3f(0.0, 0.0, 1.0);
+	switch (mc->bombs) {
+	case 3:	DrawString(GLUT_BITMAP_HELVETICA_18, "Bombs: 3", 0.68, 0.85);	break;
+	case 2:	DrawString(GLUT_BITMAP_HELVETICA_18, "Bombs: 2", 0.68, 0.85);	break;
+	case 1:	DrawString(GLUT_BITMAP_HELVETICA_18, "Bombs: 1", 0.68, 0.85);	break;
+	case 0:	DrawString(GLUT_BITMAP_HELVETICA_18, "Bombs: 0", 0.68, 0.85);	break;
+	default: DrawString(GLUT_BITMAP_HELVETICA_18, "Bombs: 0", 0.68, 0.85);	break;
+	}
+
+
 
 	if (mc->lives <= 0)
 		DrawString(GLUT_BITMAP_HELVETICA_18, "YOU ARE DEAD!", -0.22, -0.5);

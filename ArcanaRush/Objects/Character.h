@@ -9,7 +9,8 @@ class Character : public Mob{
 public:
 	int lives;
 	int bombs;
-//	int bombs();
+	bool bombsDeploy;
+	void fire(std::vector<Bullet*>& t);
 
 	Character();
 
