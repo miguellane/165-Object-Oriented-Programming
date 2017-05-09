@@ -46,7 +46,7 @@ void  Mob::atk1(std::vector<Bullet*>& t){//upward
 }
 
 void  Mob::atk2(std::vector<Bullet*>& t){//downward
-	float gunx = x ;
+	float gunx = x + w / 2;
 	float guny = y - h / 2;
 	t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(3*PI / 2), 0.001f, 1, atkDamage));
 }
@@ -133,4 +133,11 @@ void Mob::atk11(std::vector<Bullet*>& t) {// upper half flower
 	for (int i = 0; i <= 180; i += 15) {
 		t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(i * PI / 180), v, 6, atkDamage));
 	}
+}
+void  Mob::atk12(std::vector<Bullet*>& t) {// full flower
+	float v = 0.0002f;
+	float gunx = x + w / 2;
+	float guny = y - h / 2;
+	for (int i = 0; i < 360; i += 15)
+		t.push_back(new Bullet(gunx, guny, 0.01f, 0.01f, (float)(i * PI / 180), v, 7, atkDamage));
 }

@@ -39,6 +39,7 @@ void App::draw() {
 
 	game.draw();
 
+	glColor3f(1.0, 1.0, 1.0);
 	glBindTexture(GL_TEXTURE_2D, 5);
 	background->draw();
 	glDisable(GL_TEXTURE_2D);
@@ -61,13 +62,9 @@ void App::keyPress(unsigned char key) {
 	float v = 0.001f;
 	switch (key) {
 	case 27:	exit(0);	break;
-	case 'p':	if (game.pause == false)
-					game.pause = true;
-				else
-					game.pause = false;
-		break;
+	case 'p':	game.pause = !game.pause;
 	case 'z': game.godMode = !game.godMode;	break;
-		//case ' ':	game.mc->bombs() = ; break;
+	case 'e':	game.mc->bombsDeploy = !game.mc->bombsDeploy;	break;
 	case 'w':	game.mc->direction = (float)(PI / 2); game.mc->velocity = v; break;
 	case 'a':	game.mc->direction = (float)(PI); game.mc->velocity = v; break;
 	case 's':	game.mc->direction = (float)((3 * PI) / 2); game.mc->velocity = v; break;
@@ -87,10 +84,11 @@ void App::specialKeyPress(int key) {
 	const float incf = 0.05f;
 	float shiftx = 0, shifty = 0;
 	switch (key) {
-	case GLUT_KEY_LEFT:		game.mc->atk = 8; break;
-	case GLUT_KEY_RIGHT:	game.mc->atk = 9; break;
+	case GLUT_KEY_LEFT:		game.mc->atk = 3; break;
+	case GLUT_KEY_RIGHT:	game.mc->atk = 4; break;
 	case GLUT_KEY_UP:		game.mc->atk = 1; break;
 	case GLUT_KEY_DOWN:		game.mc->atk = 2; break;
+	
 	}
 }
 void App::idle() {
