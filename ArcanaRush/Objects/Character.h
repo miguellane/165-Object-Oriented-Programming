@@ -9,7 +9,7 @@ class Character : public Mob{
 public:
 	int lives;
 	int bombs;
-	int bombs();
+//	int bombs();
 
 	Character();
 

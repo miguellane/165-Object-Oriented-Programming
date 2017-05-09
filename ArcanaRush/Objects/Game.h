@@ -32,8 +32,10 @@ public:
 
 	void wave1();
 	void wave2();
-	void midBoss();
 	void wave3();
+	void wave4();
+	void wave5();
+	//void midBoss();
 	void finBoss();
 
 	int waveCounter;
