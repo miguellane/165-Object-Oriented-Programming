@@ -70,8 +70,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\monalisa.bmp" />
-    <Image Include="..\wall.bmp" />
     <Image Include="..\kyrilov.bmp" />
+    <Image Include="..\shang.bmp" />
+    <Image Include="..\wei.bmp" />
+    <Image Include="..\xin.bmp" />
   </ItemGroup>
 </Project>

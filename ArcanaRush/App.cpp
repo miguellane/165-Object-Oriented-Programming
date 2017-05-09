@@ -3,17 +3,12 @@
 App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w, h) {
 	mx = 0.0;
 	my = 0.0;
-	
+
 	// Load Textures
-	#if defined WIN32
-	monalisa = loadTexture("..\\monalisa.bmp");
 	kyrilov = loadTexture("..\\kyrilov.bmp");
-	#else
-	monalisa = loadTexture("monalisa.bmp");
-	kyrilov = loadTexture("kyrilov.bmp");
-	#endif
-	
-	//boss1 = new TexRect(0, 0.67, 0.5, 0.67);
+	wei = loadTexture("..\\wei.bmp");
+	shang = loadTexture("..\\shang.bmp");
+	xin = loadTexture("..\\xin.bmp");
 }
 
 GLuint App::loadTexture(const char *filename) {
@@ -23,9 +18,6 @@ GLuint App::loadTexture(const char *filename) {
 	glEnable(GL_DEPTH_TEST);
 
 	RgbImage theTexMap(filename);
-
-	// Pixel alignment: each row is word aligned (aligned to a 4 byte boundary)
-	//    Therefore, no need to call glPixelStore( GL_UNPACK_ALIGNMENT, ... );
 
 	glGenTextures(1, &texture_id);
 	glBindTexture(GL_TEXTURE_2D, texture_id);
@@ -43,16 +35,6 @@ void App::draw() {
 	glLoadIdentity();
 
 	game.draw();
-
-	/*
-	// Bind and Draw Textures
-	glColor3d(1.0, 1.0, 1.0);
-
-	glBindTexture(GL_TEXTURE_2D, kyrilov);
-	boss1->draw();
-	
-	glDisable(GL_TEXTURE_2D);
-	*/
 
 	glFlush();
 	glutSwapBuffers();
@@ -72,11 +54,16 @@ void App::keyPress(unsigned char key) {
 	float v = 0.001f;
 	switch (key) {
 	case 27:	exit(0);	break;
-	//case ' ':	game.mc->bombs() = ; break;
+	case 'p':	if (game.pause == false)
+					game.pause = true;
+				else
+					game.pause = false;
+		break;
+		//case ' ':	game.mc->bombs() = ; break;
 	case 'w':	game.mc->direction = (float)(PI / 2); game.mc->velocity = v; break;
 	case 'a':	game.mc->direction = (float)(PI); game.mc->velocity = v; break;
-	case 's':	game.mc->direction = (float)((3*PI)/2); game.mc->velocity = v; break;
-	case 'd':	game.mc->direction = (float)(2*PI); game.mc->velocity = v; break;
+	case 's':	game.mc->direction = (float)((3 * PI) / 2); game.mc->velocity = v; break;
+	case 'd':	game.mc->direction = (float)(2 * PI); game.mc->velocity = v; break;
 
 
 	case 'i':	game.mc->direction = (float)(PI / 2); game.mc->velocity = v; break;
@@ -99,6 +86,7 @@ void App::specialKeyPress(int key) {
 	}
 }
 void App::idle() {
-	game.update();
+	if (!game.pause)
+		game.update();
 	draw();
 }

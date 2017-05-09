@@ -29,12 +29,15 @@ public:
 	bool outBoundsOuter(float x, float y);
 	bool outBoundsInner(float x, float y);
 	bool mcDeath();
+	bool pause;
 
 	void wave1();
 	void wave2();
 	void wave3();
 	void wave4();
 	void wave5();
+	void wave6();
+	void wave7();
 	//void midBoss();
 	void finBoss();
 

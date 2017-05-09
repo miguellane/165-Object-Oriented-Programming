@@ -39,18 +39,35 @@ void Entity::update(){
 	velocity += acceleration;
 }
 
-void Entity::draw(){
+void Entity::draw() {
 	glColor3f(r, g, b);
 	glBegin(GL_TRIANGLES);
 	glVertex2f(x, y);
 	glVertex2f(x + w, y);
 	glVertex2f(x + w, y - h);
-	
-	
+
+
 	glVertex2f(x, y - h);
 	glVertex2f(x, y);
 	glVertex2f(x + w, y - h);
 	glEnd();
+}
+
+void Entity::drawTex(){
+	glEnable(GL_TEXTURE_2D);
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+	glColor3f(r,g,b);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 1.0);
+	glVertex2f(x, y);
+	glTexCoord2f(1.0, 1.0);
+	glVertex2f(x + w, y);
+	glTexCoord2f(1.0, 0.0);
+	glVertex2f(x + w, y - h);
+	glTexCoord2f(0.0, 0.0);
+	glVertex2f(x, y - h);
+	glEnd();
+	glDisable(GL_TEXTURE_2D);
 }
 
 bool Entity::contains(float x, float y, float w, float h) {
