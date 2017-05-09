@@ -2,9 +2,10 @@
 #include "GlutApp.h"
 Game::Game() {
 	score = 0;
+	pause = false;
 	bossFight = false;
 	mc = new Character();
-	waveCounter = 5;
+	waveCounter = 1;
 }
 void Game::update() {
 	size_t i;
@@ -18,7 +19,9 @@ void Game::update() {
 			case 3: wave3(); waveCounter++;  break;
 			case 4: wave4(); waveCounter++; break;
 			case 5: wave5(); waveCounter++; break;
-			case 6: finBoss(); bossFight = true; waveCounter++; break;
+			case 6: wave5(); waveCounter++; break;
+			case 7: wave5(); waveCounter++; break;
+			case 8: finBoss(); bossFight = true; waveCounter++; break;
 		}
 	}
 
@@ -134,17 +137,31 @@ bool Game::outBoundsInner(float x, float y) {
 
 void Game::wave1()
 {
-	//inflates shot
-	enemies.push_back(new Mob(0.3f,0.8f,0.0f,0.0f,1,10,1.5f));
-	enemies.push_back(new Mob(-0.3f, 0.8f, 0.0f, 0.0f, 1, 10, 1.5f));
-
-	//half circle
-	enemies.push_back(new Mob(0.5f, 0.3f, 0.0f, 0.0f, 1, 4, 1.5f));
-	enemies.push_back(new Mob(-0.5f, 0.3f, 0.0f, 0.0f, 1, 4, 1.5f));
+	enemies.push_back(new Mob(-0.5f, 0.58f, 0.0f, 0.0f, 1, 2, 1.5f));
 
 }
 
 void Game::wave2()
+{
+	//half circle
+	enemies.push_back(new Mob(-0.8f, 0.5f, (float)(PI), 0.0f, 1, 9, 1.5f));
+	enemies.push_back(new Mob(0.5f, -0.6f, (float)(2 * PI), 0.0f, 1, 8, 1.5f));
+
+}
+
+void Game::wave3()
+{
+	//inflates shot
+	//enemies.push_back(new Mob(0.3f,0.8f,0.0f,0.0f,1,10,1.5f));
+	//enemies.push_back(new Mob(-0.3f, 0.8f, 0.0f, 0.0f, 1, 10, 1.5f));
+
+	//half circle
+	enemies.push_back(new Mob(0.7f, 0.7f, 0.0f, 0.0f, 1, 4, 1.5f));
+	enemies.push_back(new Mob(-0.7f, 0.7f, 0.0f, 0.0f, 1, 4, 1.5f));
+
+}
+
+void Game::wave4()
 {
 	enemies.push_back(new Mob(1.0f, 0.3f, (float)(PI), 0.0001f, 1, 3, 1.5f));
 	enemies.push_back(new Mob(-1.0f, 0.5f, (float)(2*PI), 0.0001f, 1, 3, 1.5f));
@@ -154,7 +171,7 @@ void Game::wave2()
 	
 }
 
-void Game::wave3()
+void Game::wave5()
 {
 	enemies.push_back(new Mob(-0.5f, 0.5f, 0.0f, 0.0f, 1, 3, 1.0f));
 	enemies.push_back(new Mob(0.5f, 0.5f, 0.0f, 0.0f, 1,3, 1.0f));
@@ -163,7 +180,7 @@ void Game::wave3()
 	
 }
 
-void Game::wave4()
+void Game::wave6()
 {
 	enemies.push_back(new Mob(-0.5f, 0.0f, 0.0f, 0.0f, 1, 5, .5f));
 	enemies.push_back(new Mob(0.5f, 0.0f, 0.0f, 0.0f, 1, 5, .5f));
@@ -172,7 +189,7 @@ void Game::wave4()
 
 }
 
-void Game::wave5()
+void Game::wave7()
 {
 	enemies.push_back(new Mob(0.0f, 0.9f, 0.0f, 0.0f, 1, 10, 1.0f));
 
@@ -189,13 +206,22 @@ void Game::draw() {
 	size_t i;
 
 	mc->draw();
-	if (bossFight)
-		boss->draw();
-	for (i = 0; i < enemies.size(); i++)
-		enemies[i]->draw();
 
-	for (i = 0; i < mcShots.size(); i++)
+	if (bossFight) {
+		glBindTexture(GL_TEXTURE_2D, 1);
+		boss->drawTex();
+		glDisable(GL_TEXTURE_2D);
+	}
+	for (i = 0; i < enemies.size(); i++) {
+		glBindTexture(GL_TEXTURE_2D, 2);
+		enemies[i]->drawTex();
+		glDisable(GL_TEXTURE_2D);
+	}
+
+	for (i = 0; i < mcShots.size(); i++) {
 		mcShots[i]->draw();
-	for (i = 0; i < shots.size(); i++)
+	}
+	for (i = 0; i < shots.size(); i++) {
 		shots[i]->draw();
+	}
 }

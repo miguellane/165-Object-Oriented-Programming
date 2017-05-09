@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BE3DDA17-F918-42E2-B822-4C8A6EF632C9}</ProjectGuid>
     <RootNamespace>glutapp</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -141,8 +141,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\kyrilov.bmp" />
-    <Image Include="..\monalisa.bmp" />
-    <Image Include="..\wall.bmp" />
+    <Image Include="..\shang.bmp" />
+    <Image Include="..\wei.bmp" />
+    <Image Include="..\xin.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

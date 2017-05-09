@@ -21,11 +21,10 @@ public:
 
 	GLuint loadTexture(const char* filename);
 
-	GLuint monalisa;
 	GLuint kyrilov;
-
-	TexRect* boss1;
-	TexRect* boss2;
+	GLuint wei;
+	GLuint shang;
+	GLuint xin;
 };
 
 #endif

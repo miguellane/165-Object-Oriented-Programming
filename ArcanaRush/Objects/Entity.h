@@ -23,6 +23,7 @@ public:
 	Entity(float x, float y, float w, float h, float d, float v, int mv, float r, float g, float b);
 	void update();
 	void draw();
+	void drawTex();
 	bool contains(float x, float y, float w, float h);
 };
 
